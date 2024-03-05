@@ -5,9 +5,7 @@ These are my dotfiles.
 ## Installation
 
 ```bash
-  git clone https://github.com/YasminTeles/dotfiles.git ~/.dotfiles
-  cd ~/.dotfiles
-  stow --dotfiles git
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/YasminTeles/dotfiles/HEAD/install.sh)"
 ```
 
 ## License
