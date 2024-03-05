@@ -2,6 +2,14 @@
 
 These are my dotfiles.
 
+## Installation
+
+```bash
+  git clone https://github.com/YasminTeles/dotfiles.git ~/.dotfiles
+  cd ~/.dotfiles
+  stow --dotfiles git
+```
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
