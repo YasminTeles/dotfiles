@@ -3,27 +3,42 @@
 # Tells the shell script to exit if it encounters an error
 set -e
 
+TOTAL_STEPS=4
+STEP=1
+function step_msg {
+	echo  "[$STEP/$TOTAL_STEPS] $1...";
+  ((STEP++))
+}
+
+# -- Get some information -----------------------------------------------------
+printf "Please enter some information.\n"
 read -p "What is your email? " GIT_EMAIL
 
 printf "\nPlease wait! It will configure your environment.\n"
-echo "[1/4] Creating the Projects folder..."
+
+# -- Project folder -----------------------------------------------------------
+step_msg "Creating the Projects folder"
 mkdir ~/Projects
 
-echo "[2/4] Setting up dotfiles..."
+# -- Dotfiles -----------------------------------------------------------------
+step_msg "Setting up dotfiles"
 git clone https://github.com/YasminTeles/dotfiles.git ~/.dotfiles
 
 cd ~/.dotfiles
 stow --dotfiles git ssh
 
-echo "[3/4] Configuring Git..."
+# -- Git -----------------------------------------------------------------------
+step_msg "Configuring Git"
 git config --global user.email $GIT_EMAIL
 
-echo "[4/4] Generating a new SSH key..."
+# -- SSH Key -------------------------------------------------------------------
+step_msg "Generating a new SSH key"
 rm -rf ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.pub
 ssh-keygen -t ed25519 -C $GIT_EMAIL -f ~/.ssh/id_ed25519 -q -N ""
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 echo "Warning: You must add the SSH public key to your account on GitHub or GitLab. For more information, see make ssh"
 
+# -- Happy end -----------------------------------------------------------------
 printf "\nSuccess: Everything is ready!"
 printf "\nHave a nice day!\n"
