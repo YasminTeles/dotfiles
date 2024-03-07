@@ -16,6 +16,16 @@ read -p "What is your email? " GIT_EMAIL
 
 printf "\nPlease wait! It will configure your environment.\n"
 
+# -- Essential packages --------------------------------------------------------
+step_msg "Installing the essential packages"
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  eval apt update
+  eval apt upgrade -y
+  eval apt-get install build-essential -y
+else
+  xcode-select — install
+fi
+
 # -- Project folder -----------------------------------------------------------
 step_msg "Creating the Projects folder"
 mkdir ~/Projects
