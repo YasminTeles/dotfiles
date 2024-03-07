@@ -18,6 +18,16 @@ Add the SSH public key to your account on GitHub or GitLab. Use `make ssh` to co
   make ssh
 ```
 
+## What's included?
+
+All my command-line tools, applications, and their configurations. Have fun 😎
+
+#### General
+
+- Git
+- SSH key generation
+- Create a Projects folder
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
