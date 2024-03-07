@@ -28,6 +28,14 @@ All my command-line tools, applications, and their configurations. Have fun 😎
 - SSH key generation
 - Create a Projects folder
 
+#### Helper
+
+A set of environment management commands is available at `Makefile`. To access the help documentation, simply run `make help` in your terminal.
+
+```bash
+  make help
+```
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
