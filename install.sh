@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Tells the shell script to exit if it encounters an error
+set -e
+
 read -p "What is your email? " GIT_EMAIL
 
 printf "\nPlease wait! It will configure your environment.\n"
