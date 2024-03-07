@@ -1,11 +1,21 @@
-# My dotfiles
+# Yasmin´s dotfiles
 
 These are my dotfiles.
 
 ## Installation
 
+Insert this into a macOS Terminal or Linux shell prompt. The script will detail its actions and then halt before executing them.
+
 ```bash
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/YasminTeles/dotfiles/HEAD/install.sh)"
+```
+
+## Post-Installation
+
+Add the SSH public key to your account on GitHub or GitLab. Use `make ssh` to copy the SSH public key to your clipboard.
+
+```bash
+  make ssh
 ```
 
 ## License
