@@ -26,6 +26,11 @@ else
   xcode-select — install
 fi
 
+# -- Homebrew ----------------------------------------------------------------
+step_msg "Installing Homebrew"
+NONINTERACTIVE=1 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install git stow
+
 # -- Project folder -----------------------------------------------------------
 step_msg "Creating the Projects folder"
 mkdir ~/Projects

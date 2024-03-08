@@ -13,6 +13,7 @@ del: ## Delete your development environment.
 	@rm -rf ~/Projects
 	@rm -rf ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.pub
 	@brew uninstall --force $(shell brew list)
+	@NONINTERACTIVE=1 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
 
 ssh: ## Copy the SSH public key to your clipboard.
 	@pbcopy < ~/.ssh/id_ed25519.pub
