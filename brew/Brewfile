@@ -1,0 +1,56 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "homebrew/services"
+
+# Essentials
+brew "stow"
+brew "git"
+
+# Terminal
+brew "spaceship"
+cask "iterm2"
+cask "font-fira-code-nerd-font"
+cask "font-hack-nerd-font"
+
+# Terminal tools
+brew "zsh"
+brew "httpie"
+brew "jq"
+brew "gh"
+brew "eza"
+brew "bat"
+brew "make"
+brew "diff-so-fancy"
+
+# Docker
+brew "docker"
+brew "docker-compose"
+brew "docker-credential-helper"
+brew "docker-machine"
+
+# Languages
+brew "go"
+brew "node"
+brew "nvm"
+brew "yarn"
+brew "pyenv"
+brew "poetry"
+
+# Development apps
+cask "visual-studio-code"
+cask "firefox-developer-edition"
+cask "google-chrome"
+cask "beekeeper-studio"
+cask "figma"
+cask "postman"
+
+# Productivity apps
+cask "notion-calendar"
+cask "notion"
+cask "spotify"
+
+# Communication
+cask "zoom"
+cask "slack"

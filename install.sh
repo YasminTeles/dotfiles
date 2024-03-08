@@ -3,7 +3,7 @@
 # Tells the shell script to exit if it encounters an error
 set -e
 
-TOTAL_STEPS=4
+TOTAL_STEPS=6
 STEP=1
 function step_msg {
 	echo  "[$STEP/$TOTAL_STEPS] $1...";
@@ -20,12 +20,21 @@ printf "\nPlease wait! It will configure your environment.\n"
 step_msg "Creating the Projects folder"
 mkdir ~/Projects
 
+# -- Homebrew -----------------------------------------------------------------
+step_msg "Installing homebrew"
+brew update
+brew install git stow
+
 # -- Dotfiles -----------------------------------------------------------------
 step_msg "Setting up dotfiles"
 git clone https://github.com/YasminTeles/dotfiles.git ~/.dotfiles
 
 cd ~/.dotfiles
-stow --dotfiles git ssh
+stow --dotfiles git ssh brew
+
+# -- Productivity Apps ---------------------------------------------------------
+step_msg "Installing the productivity apps"
+brew bundle install --file=~/Brewfile
 
 # -- Git -----------------------------------------------------------------------
 step_msg "Configuring Git"

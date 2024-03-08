@@ -27,6 +27,7 @@ All my command-line tools, applications, and their configurations. Have fun 😎
 - Git
 - SSH key generation
 - Create a Projects folder
+- A bunch of productivity apps. See [Brewfile](/brew/Brewfile) for more information.
 
 #### Helper
 
