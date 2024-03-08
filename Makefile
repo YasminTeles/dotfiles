@@ -12,9 +12,10 @@ check_clean:
 
 del: check_clean ## Delete your development environment.
 	@echo "Deleting all dotfiles, applications, and folders..."
-	@stow --dotfiles -D git ssh brew
+	@stow --dotfiles -D git ssh brew zsh
 	@rm -rf ~/Projects
 	@rm -rf ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.pub
+	@rm -rf ~/.oh-my-zsh
 	@brew uninstall --force $(shell brew list)
 
 ssh: ## Copy the SSH public key to your clipboard.

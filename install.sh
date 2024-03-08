@@ -3,7 +3,7 @@
 # Tells the shell script to exit if it encounters an error
 set -e
 
-TOTAL_STEPS=6
+TOTAL_STEPS=7
 STEP=1
 function step_msg {
 	printf "\n\033[36;1m[%s/%s] %s...\033[0m\n" "$STEP" "$TOTAL_STEPS" "$1";
@@ -43,6 +43,14 @@ stow --dotfiles git ssh brew
 # -- Productivity Apps ---------------------------------------------------------
 step_msg "Installing the productivity apps"
 brew bundle install --file=~/Brewfile
+
+# -- Oh My Zsh -----------------------------------------------------------------
+step_msg "Installing the Oh My Zsh"
+# chsh -s $(which zsh)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+rm -rf ~/.zshrc
+stow --dotfiles zsh
+echo "My current shell is $SHELL."
 
 # -- Git -----------------------------------------------------------------------
 step_msg "Configuring Git"

@@ -24,7 +24,7 @@ then
 
   # -- Symlinks ----------------------------------------------------------------
   step_msg "Removing all symlinks"
-  cd ~/.dotfiles && stow --dotfiles -D git ssh brew
+  cd ~/.dotfiles && stow --dotfiles -D git ssh brew zsh
 
   # -- Project folder ----------------------------------------------------------
   step_msg "Removing the Project directory"
@@ -37,6 +37,7 @@ then
   # -- Productivity Apps -------------------------------------------------------
   step_msg "Removing all productivity apps"
   brew uninstall --force "$(brew list)"
+  rm -rf ~/.oh-my-zsh
   rm -rf ~/Brewfile.lock.json
 
   # -- Dotfiles ----------------------------------------------------------------
