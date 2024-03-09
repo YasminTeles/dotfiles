@@ -1,4 +1,4 @@
-.PHONY: help del ssh backup check-scripts
+.PHONY: help check_clean del ssh backup check-scripts
 
 help: ## Show help.
 	@printf "A set of environment management commands.\n"
@@ -7,7 +7,10 @@ help: ## Show help.
 	@printf "\nThe Commands are:\n\n"
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\t\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-del: ## Delete your development environment.
+check_clean:
+	@echo -n "Are you sure you want to remove all configurations? [y/N] " && read ans && [ $${ans:-N} = y ]
+
+del: check_clean ## Delete your development environment.
 	@echo "Deleting all dotfiles, applications, and folders..."
 	@stow --dotfiles -D git ssh brew
 	@rm -rf ~/Projects

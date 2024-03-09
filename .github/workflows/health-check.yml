@@ -29,7 +29,7 @@ jobs:
         run: make check-scripts
 
   Test:
-    name: Test install on macOS
+    name: Test install and uninstall on macOS
     runs-on: macos-14
     timeout-minutes: 30
     steps:
@@ -38,6 +38,16 @@ jobs:
 
       - name: Run install script
         run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/YasminTeles/dotfiles/main/install.sh)"
+        env:
+          CI: true
+
+      - name: Show the Home directory
+        run: |
+            cd ~
+            ls -la
+
+      - name: Run uninstall script
+        run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/YasminTeles/dotfiles/main/uninstall.sh)"
         env:
           CI: true
 
