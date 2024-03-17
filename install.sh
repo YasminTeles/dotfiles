@@ -3,6 +3,7 @@
 # Tells the shell script to exit if it encounters an error
 set -e
 
+# Print a step description
 TOTAL_STEPS=7
 STEP=1
 function step_msg {
@@ -46,7 +47,6 @@ brew bundle install --file=~/Brewfile
 
 # -- Oh My Zsh -----------------------------------------------------------------
 step_msg "Installing the Oh My Zsh"
-# chsh -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 rm -rf ~/.zshrc
 stow --dotfiles zsh
@@ -67,6 +67,7 @@ ssh-add ~/.ssh/id_ed25519
 echo -e "\n"
 title_msg "Next steps:"
 echo -e "- Run \033[1mmake ssh\033[0m to copy your SSH public Key and past it into your GitHub or GitLab account."
+echo -e "- Run \033[1mmake zsh\033[0m to change your shell to zsh mode."
 
 # -- Happy end -----------------------------------------------------------------
 printf "\n\nSuccess: Everything is ready!"

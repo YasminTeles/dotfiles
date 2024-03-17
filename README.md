@@ -10,14 +10,6 @@ Insert this into a macOS Terminal or Linux shell prompt. The script will detail 
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/YasminTeles/dotfiles/main/install.sh)"
 ```
 
-### Post-Installation
-
-Add the SSH public key to your account on GitHub or GitLab. Use `make ssh` to copy the SSH public key to your clipboard.
-
-```bash
-  make ssh
-```
-
 ## What's included?
 
 All my command-line tools, applications, and their configurations. Have fun 😎💅

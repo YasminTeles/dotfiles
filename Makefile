@@ -1,4 +1,4 @@
-.PHONY: help check_clean del ssh backup check-scripts
+.PHONY: help check_clean del ssh zsh backup check-scripts
 
 help: ## Show help.
 	@printf "A set of environment management commands.\n"
@@ -17,6 +17,10 @@ del: check_clean ## Delete your development environment.
 	@rm -rf ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.pub
 	@rm -rf ~/.oh-my-zsh
 	@brew uninstall --force $(shell brew list)
+
+zsh: ## Change shell to zsh mode
+	@chsh -s $(which zsh)
+	@echo "My current shell is $(SHELL)."
 
 ssh: ## Copy the SSH public key to your clipboard.
 	@pbcopy < ~/.ssh/id_ed25519.pub
