@@ -32,12 +32,11 @@ brew "docker-credential-helper"
 brew "docker-machine"
 
 # Languages
-brew "go"
+brew "golang"
 brew "node"
 brew "nvm"
 brew "yarn"
 brew "pyenv"
-brew "poetry"
 
 # Development apps
 cask "visual-studio-code"
@@ -48,7 +47,7 @@ cask "figma"
 cask "postman"
 
 # Productivity apps
-cask "notion-calendar"
+cask "cron"
 cask "notion"
 cask "spotify"
 

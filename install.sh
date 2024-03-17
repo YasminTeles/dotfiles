@@ -15,8 +15,12 @@ function title_msg {
 }
 
 # -- Get some information -----------------------------------------------------
-printf "Please enter some information.\n"
-read -r -p "What is your email? " GIT_EMAIL
+if [ "$CI" = true ] ; then
+  GIT_EMAIL=name@mail.com
+else
+  printf "Please enter some information.\n"
+  read -r -p "What is your email? " GIT_EMAIL
+fi
 
 title_msg "Please wait! It will configure your environment."
 
@@ -32,6 +36,7 @@ brew install git stow
 step_msg "Setting up dotfiles"
 git clone https://github.com/YasminTeles/dotfiles.git ~/.dotfiles
 
+rm -rf ~/.gitconfig
 cd ~/.dotfiles
 stow --dotfiles git ssh brew
 
