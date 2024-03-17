@@ -1,4 +1,4 @@
-.PHONY: help check_clean del ssh backup github gh-dash gh-login colima check-scripts macos
+.PHONY: help check_clean del ssh backup github gh-dash gh-login gitlab colima check-scripts macos
 
 help: ## Show help.
 	@printf "A set of environment management commands.\n"
@@ -41,6 +41,14 @@ gh-dash: ## Install gh-dash extension.
 
 gh-login: ## Login to GitHub.
 	@gh auth login --git-protocol ssh --web
+
+gitlab: ## Clone all projects of a group at once in Gitlab.
+	@echo "Please enter some information"
+	@read -r -p "What is the hostname? " GLAB_HOSTNAME
+	@read -r -p "What is the name of group? " GLAB_GROUP
+	@glab auth login --hostname $(GLAB_HOSTNAME)
+	@cd ~/Projects && glab repo clone -g $(GLAB_GROUP) -a=false -p --paginate
+	@echo "Check the Projects folder to view all cloned projects."
 
 colima: ## Setting up Colima and create a docker compose plugin.
 	@echo '{"credsStore":"osxkeychain"}' > ~/.docker/config.json
