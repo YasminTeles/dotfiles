@@ -1,4 +1,4 @@
-.PHONY: help check_clean del ssh zsh backup github check-scripts
+.PHONY: help check_clean del ssh zsh backup github gitlab check-scripts
 
 help: ## Show help.
 	@printf "A set of environment management commands.\n"
@@ -36,6 +36,13 @@ github: ## Clone all projects of a username at once in Github.
 	@echo "Please enter some information"
 	@read -r -p "What is the organization or user name? " owner; \
 	cd ~/Projects && gh repo list $$owner --limit 4000 --no-archived | while read -r repository _; do gh repo clone $$repository ; done
+
+gitlab: ## Clone all projects of a group at once in Gitlab.
+	@echo "Please enter some information"
+	@read -r -p "What is the hostname? " GLAB_HOSTNAME
+	@read -r -p "What is the name of group? " GLAB_GROUP
+	@glab auth login --hostname $(GLAB_HOSTNAME)
+	@cd ~/Projects && glab repo clone -g $(GLAB_GROUP) -a=false -p --paginate
 	@echo "Check the Projects folder to view all cloned projects."
 
 check-scripts: ## Check the shell script.
