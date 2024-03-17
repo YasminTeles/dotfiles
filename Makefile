@@ -1,4 +1,4 @@
-.PHONY: help check_clean del ssh zsh backup check-scripts
+.PHONY: help check_clean del ssh zsh backup github check-scripts
 
 help: ## Show help.
 	@printf "A set of environment management commands.\n"
@@ -30,6 +30,12 @@ ssh: ## Copy the SSH public key to your clipboard.
 backup: ## Back up your applications list.
 	@echo "Backing up your applications list..."
 	@brew bundle dump --file=./brew/Brewfile --force
+
+github: ## Clone all projects of a username at once in Github.
+	@echo "Please enter some information"
+	@read -r -p "What is the organization or user name? " owner; \
+	cd ~/Projects && gh repo list $$owner --limit 4000 --no-archived | while read -r repository _; do gh repo clone $$repository ; done
+	@echo "Check the Projects folder to view all cloned projects."
 
 check-scripts: ## Check the shell script.
 	@echo "Checking the shell script..."
