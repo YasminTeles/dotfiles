@@ -1,6 +1,10 @@
 # Yasmin´s dotfiles
 
-These are my dotfiles.
+Welcome to my dotfiles repository!
+
+This project is a curated collection of configuration files and scripts tailored to enhance my daily development experience.
+
+My dotfiles are designed to simplify my workflow, customize my development environment, and ensure a consistent configuration.
 
 ## Installation
 
