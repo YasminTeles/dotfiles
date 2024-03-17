@@ -6,23 +6,26 @@ set -e
 TOTAL_STEPS=6
 STEP=1
 function step_msg {
-	echo  "[$STEP/$TOTAL_STEPS] $1...";
+	printf "\n\033[36;1m[%s/%s] %s...\033[0m\n" "$STEP" "$TOTAL_STEPS" "$1";
   ((STEP++))
+}
+
+function title_msg {
+  printf "\n%s\n" "$1";
 }
 
 # -- Get some information -----------------------------------------------------
 printf "Please enter some information.\n"
-read -p "What is your email? " GIT_EMAIL
+read -r -p "What is your email? " GIT_EMAIL
 
-printf "\nPlease wait! It will configure your environment.\n"
+title_msg "Please wait! It will configure your environment."
 
 # -- Project folder -----------------------------------------------------------
 step_msg "Creating the Projects folder"
 mkdir ~/Projects
 
-# -- Homebrew -----------------------------------------------------------------
-step_msg "Installing homebrew"
-brew update
+# -- Dependencies -------------------------------------------------------------
+step_msg "Installing dependencies"
 brew install git stow
 
 # -- Dotfiles -----------------------------------------------------------------
@@ -38,16 +41,20 @@ brew bundle install --file=~/Brewfile
 
 # -- Git -----------------------------------------------------------------------
 step_msg "Configuring Git"
-git config --global user.email $GIT_EMAIL
+git config --global user.email "$GIT_EMAIL"
 
 # -- SSH Key -------------------------------------------------------------------
 step_msg "Generating a new SSH key"
 rm -rf ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.pub
-ssh-keygen -t ed25519 -C $GIT_EMAIL -f ~/.ssh/id_ed25519 -q -N ""
+ssh-keygen -t ed25519 -C "$GIT_EMAIL" -f ~/.ssh/id_ed25519 -q -N ""
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
-echo "Warning: You must add the SSH public key to your account on GitHub or GitLab. For more information, see make ssh"
+
+# -- Next Steps ----------------------------------------------------------------
+echo -e "\n"
+title_msg "Next steps:"
+echo -e "- Run \033[1mmake ssh\033[0m to copy your SSH public Key and past it into your GitHub or GitLab account."
 
 # -- Happy end -----------------------------------------------------------------
-printf "\nSuccess: Everything is ready!"
+printf "\n\nSuccess: Everything is ready!"
 printf "\nHave a nice day!\n"
