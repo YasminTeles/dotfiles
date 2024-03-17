@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 .PHONY: help check_clean del ssh backup github gh-dash gh-login colima check-scripts macos
+=======
+.PHONY: help check_clean del ssh zsh backup github gitlab check-scripts
+>>>>>>> bf67182 (feat: Clone all projects of a group at once in Gitlab)
 
 help: ## Show help.
 	@printf "A set of environment management commands.\n"
@@ -33,6 +37,13 @@ github: gh-dash gh-login ## Clone all projects of a username at once in Github.
 	@read -r -p "What is the organization or user name? " owner; \
 	read -r -p "What is the topic? " topic; \
 	cd ~/Projects && gh repo list $$owner --limit 4000 --no-archived --topic $$topic | while read -r repository _; do gh repo clone $$repository ; done
+
+gitlab: ## Clone all projects of a group at once in Gitlab.
+	@echo "Please enter some information"
+	@read -r -p "What is the hostname? " GLAB_HOSTNAME
+	@read -r -p "What is the name of group? " GLAB_GROUP
+	@glab auth login --hostname $(GLAB_HOSTNAME)
+	@cd ~/Projects && glab repo clone -g $(GLAB_GROUP) -a=false -p --paginate
 	@echo "Check the Projects folder to view all cloned projects."
 
 gh-dash: ## Install gh-dash extension.
