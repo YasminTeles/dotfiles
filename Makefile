@@ -1,4 +1,4 @@
-.PHONY: help del ssh backup
+.PHONY: help del ssh backup check-scripts
 
 help: ## Show help.
 	@printf "A set of environment management commands.\n"
@@ -22,3 +22,7 @@ ssh: ## Copy the SSH public key to your clipboard.
 backup: ## Back up your applications list.
 	@echo "Backing up your applications list..."
 	@brew bundle dump --file=./brew/Brewfile --force
+
+check-scripts: ## Check the shell script.
+	@echo "Checking the shell script..."
+	@shellcheck *.sh

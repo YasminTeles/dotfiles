@@ -7,6 +7,7 @@ tap "homebrew/services"
 # Essentials
 brew "stow"
 brew "git"
+brew "shellcheck"
 
 # Terminal
 brew "spaceship"
