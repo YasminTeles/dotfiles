@@ -42,7 +42,7 @@ brew "pyenv"
 cask "visual-studio-code"
 cask "firefox-developer-edition"
 cask "google-chrome"
-cask "beekeeper-studio"
+# cask "beekeeper-studio"
 cask "figma"
 cask "postman"
 

@@ -7,20 +7,45 @@ set -e
 TOTAL_STEPS=5
 STEP=1
 function step_msg {
-	printf "\n\033[36;1m[%s/%s] %s...\033[0m\n" "$STEP" "$TOTAL_STEPS" "$1";
+	printf "\033[36;1m[%s/%s] %s...\033[0m\n" "$STEP" "$TOTAL_STEPS" "$1";
   ((STEP++))
 }
 
-echo "This script will remove all configurations of the environment."
+function title_msg {
+  printf "\033[35;1m%s\033[0m\n\n" "$1";
+}
+
+function success_msg {
+  printf "\n\033[32;1m%s\n\n" "$1";
+}
+
+function error_msg {
+  printf "\033[31;1m%s\n\n" "$1";
+}
+
+
+# -- Getting Started ----------------------------------------------------------
+
+printf "\n"
+printf "\033[36;1m██████╗  ██████╗ ████████╗███████╗██╗██╗     ███████╗███████╗\n"
+printf "\033[36;1m██╔══██╗██╔═══██╗╚══██╔══╝██╔════╝██║██║     ██╔════╝██╔════╝\n"
+printf "\033[36;1m██║  ██║██║   ██║   ██║   █████╗  ██║██║     █████╗  ███████╗\n"
+printf "\033[36;1m██║  ██║██║   ██║   ██║   ██╔══╝  ██║██║     ██╔══╝  ╚════██║\n"
+printf "\033[36;1m██████╔╝╚██████╔╝   ██║   ██║     ██║███████╗███████╗███████║\n"
+printf "\033[36;1m╚═════╝  ╚═════╝    ╚═╝   ╚═╝     ╚═╝╚══════╝╚══════╝╚══════╝\n"
+printf "\n"
+
+title_msg "This script will remove your workspace."
 
 if [ ! "$CI" ]
 then
   read -r -p "Are you sure you want to proceed? (y/n) " CONFIRM
+  printf "\n"
 fi
 
 if [[ "$CI" || "$CONFIRM" == [yY] || "$CONFIRM" == [yY][eE][sS] ]]
 then
-  printf "\nPlease wait! Proceeding with the removal of all configurations...\n"
+  title_msg "Please wait! Proceeding to remove your workspace..."
 
   # -- Symlinks ----------------------------------------------------------------
   step_msg "Removing all symlinks"
@@ -36,7 +61,8 @@ then
 
   # -- Productivity Apps -------------------------------------------------------
   step_msg "Removing all productivity apps"
-  brew uninstall --force "$(brew list)"
+  # shellcheck disable=SC2046
+  brew uninstall --force $(brew list) >/dev/null
   rm -rf ~/.oh-my-zsh
   rm -rf ~/Brewfile.lock.json
 
@@ -45,11 +71,11 @@ then
   rm -rf ~/.dotfiles
 
 # -- Happy end -----------------------------------------------------------------
-  printf "\nAll configurations have been removed."
+  success_msg "The workspace have been removed."
 
 else
-  printf "\nOperation cancelled."
+  error_msg "Operation cancelled."
 fi
 
-printf "\nHave a nice day!\n"
+title_msg "Have a nice day!"
 
