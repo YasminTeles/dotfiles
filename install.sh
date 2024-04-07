@@ -4,7 +4,7 @@
 set -e
 
 # Print a step description
-TOTAL_STEPS=7
+TOTAL_STEPS=8
 STEP=1
 function step_msg {
 	printf "\033[36;1m[%s/%s] %s...\033[0m\n" "$STEP" "$TOTAL_STEPS" "$1";
@@ -47,6 +47,17 @@ else
 fi
 
 title_msg "Please wait! It will configure your workspace."
+
+# -- Homebrew -----------------------------------------------------------------
+# shellcheck disable=SC2046
+if test ! $(which brew); then
+  step_msg "Installing the Homebrew"
+  NONINTERACTIVE=1 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" >/dev/null
+else
+  step_msg "Updating the Homebrew"
+  brew update >/dev/null
+  brew upgrade >/dev/null
+fi
 
 # -- Project folder -----------------------------------------------------------
 step_msg "Creating the Projects folder"

@@ -4,7 +4,7 @@
 set -e
 
 # Print a step description
-TOTAL_STEPS=5
+TOTAL_STEPS=6
 STEP=1
 function step_msg {
 	printf "\033[36;1m[%s/%s] %s...\033[0m\n" "$STEP" "$TOTAL_STEPS" "$1";
@@ -65,6 +65,10 @@ then
   brew uninstall --force $(brew list) >/dev/null
   rm -rf ~/.oh-my-zsh
   rm -rf ~/Brewfile.lock.json
+
+  # -- Homebrew ----------------------------------------------------------------
+  step_msg "Removing the Homebrew"
+  NONINTERACTIVE=1 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall.sh)" >/dev/null
 
   # -- Dotfiles ----------------------------------------------------------------
   step_msg "Removing Dotfiles directory"

@@ -17,6 +17,7 @@ del: check_clean ## Delete your development environment.
 	@rm -rf ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.pub
 	@rm -rf ~/.oh-my-zsh
 	@brew uninstall --force $(shell brew list)
+	@NONINTERACTIVE=1 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall.sh)"
 
 zsh: ## Change shell to zsh mode
 	@chsh -s $(which zsh)
