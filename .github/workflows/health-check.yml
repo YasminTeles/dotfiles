@@ -4,6 +4,9 @@ on:
   push:
     branches: [master, main]
 
+  schedule:
+    - cron: "0 9 * 1-12 6"
+
 jobs:
   Scan:
     name: Secrets Scan
