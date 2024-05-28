@@ -1,7 +1,5 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
 tap "homebrew/services"
 
 # Essentials
@@ -40,7 +38,7 @@ brew "pyenv"
 
 # Development apps
 cask "visual-studio-code"
-cask "firefox-developer-edition"
+cask "firefox@developer-edition"
 cask "google-chrome"
 # cask "beekeeper-studio"
 cask "figma"
