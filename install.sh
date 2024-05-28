@@ -77,7 +77,11 @@ stow --dotfiles git ssh brew
 
 # -- Productivity Apps ---------------------------------------------------------
 step_msg "Installing the productivity apps"
-brew bundle install --file=~/Brewfile >/dev/null
+if [ "$CI" = true ] ; then
+  brew bundle install --file=~/Brewfile
+else
+  brew bundle install --file=~/Brewfile >/dev/null
+fi
 
 # -- Oh My Zsh -----------------------------------------------------------------
 step_msg "Installing the Oh My Zsh"
