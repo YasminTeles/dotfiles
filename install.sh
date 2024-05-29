@@ -4,7 +4,7 @@
 set -e
 
 # Print a step description
-TOTAL_STEPS=8
+TOTAL_STEPS=9
 STEP=1
 function step_msg {
 	printf "\033[36;1m[%s/%s] %s...\033[0m\n" "$STEP" "$TOTAL_STEPS" "$1";
@@ -89,7 +89,11 @@ step_msg "Installing the Oh My Zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended >/dev/null
 rm -rf ~/.zshrc
 stow --dotfiles zsh
-echo "My current shell is $SHELL."
+
+# -- Set up the zsh as default shell -------------------------------------------
+step_msg "Setting up the zsh as default shell"
+echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells >/dev/null
+sudo chsh -s "$(brew --prefix)/bin/zsh" "$USER"
 
 # -- Git -----------------------------------------------------------------------
 step_msg "Configuring Git"
@@ -106,7 +110,6 @@ ssh-add ~/.ssh/id_ed25519 >/dev/null
 printf "\n"
 title_msg "Next steps:"
 echo -e "- Run \033[1mmake ssh\033[0m to copy your SSH public Key and past it into your GitHub or GitLab account."
-echo -e "- Run \033[1mmake zsh\033[0m to change your shell to zsh mode."
 
 # -- Happy end -----------------------------------------------------------------
 success_msg "Everything is ready!"

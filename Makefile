@@ -1,4 +1,4 @@
-.PHONY: help check_clean del ssh zsh backup github check-scripts
+.PHONY: help check_clean del ssh backup github check-scripts
 
 help: ## Show help.
 	@printf "A set of environment management commands.\n"
@@ -18,10 +18,6 @@ del: check_clean ## Delete your development environment.
 	@rm -rf ~/.oh-my-zsh
 	@brew uninstall --force $(shell brew list)
 	@NONINTERACTIVE=1 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall.sh)"
-
-zsh: ## Change shell to zsh mode
-	@chsh -s $(which zsh)
-	@echo "My current shell is $(SHELL)."
 
 ssh: ## Copy the SSH public key to your clipboard.
 	@pbcopy < ~/.ssh/id_ed25519.pub
