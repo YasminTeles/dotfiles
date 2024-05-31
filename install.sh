@@ -65,7 +65,7 @@ mkdir ~/Projects
 
 # -- Dependencies -------------------------------------------------------------
 step_msg "Installing dependencies"
-brew install git stow >/dev/null
+brew install git stow --quiet >/dev/null
 
 # -- Dotfiles -----------------------------------------------------------------
 step_msg "Setting up dotfiles"
@@ -80,7 +80,7 @@ step_msg "Installing the productivity apps"
 if [ "$CI" = true ] ; then
   brew bundle install --file=~/Brewfile
 else
-  brew bundle install --file=~/Brewfile >/dev/null
+  brew bundle install --file=~/Brewfile --quiet >/dev/null
 fi
 
 # -- Oh My Zsh -----------------------------------------------------------------
