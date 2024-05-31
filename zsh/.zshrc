@@ -170,3 +170,10 @@ eval "$(pyenv virtualenv-init -)"
 
 export PYENV_VERSION=pypy-2.2.1
 export PIP_VERSION=21.2.4
+
+### List directories
+alias ls="eza -a --group-directories-first --icons"
+alias la="eza -a --group-directories-first --icons --oneline"
+
+### Go to dotfiles directory
+alias dotfiles="cd ~/dotfiles"
