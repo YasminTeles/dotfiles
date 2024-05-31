@@ -55,8 +55,8 @@ if test ! $(which brew); then
   NONINTERACTIVE=1 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" >/dev/null
 else
   step_msg "Updating the Homebrew"
-  brew update >/dev/null
-  brew upgrade >/dev/null
+  brew update --force --quiet
+  brew upgrade --quiet
 fi
 
 # -- Project folder -----------------------------------------------------------
