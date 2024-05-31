@@ -53,6 +53,7 @@ title_msg "Please wait! It will configure your workspace."
 if test ! $(which brew); then
   step_msg "Installing the Homebrew"
   NONINTERACTIVE=1 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" >/dev/null
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 else
   step_msg "Updating the Homebrew"
   brew update --force --quiet

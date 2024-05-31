@@ -157,6 +157,8 @@ SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_CHAR_SYMBOL="❯"
 SPACESHIP_CHAR_SUFFIX=" "
 
+### Homebrew configuration
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 ### Git via brew configuration
 
