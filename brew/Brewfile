@@ -22,6 +22,7 @@ brew "eza"
 brew "bat"
 brew "make"
 brew "diff-so-fancy"
+brew "fzf"
 
 # Docker
 brew "docker"

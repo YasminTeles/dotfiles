@@ -9,7 +9,7 @@ My dotfiles are designed to simplify my workflow, customize my development envir
 > [!WARNING]
 > I use this project to save my configuration files for personal use. Some of them may not work for you.
 
-Curious about dotfiles? Check out the guide [Customize, Simplify, and Automate Your Workspace With Dotfiles](https://yasminteles.com/blog/customize-simplify-and-automate-your-workspace-with-dotfiles).
+Are you curious about dotfiles? Check out the guide [Customize, Simplify, and Automate Your Workspace With Dotfiles](https://yasminteles.com/blog/customize-simplify-and-automate-your-workspace-with-dotfiles).
 
 Feel free to explore, adapt, and copy parts of these dotfiles into your own dotfiles. Enjoy the customization journey!
 
