@@ -4,18 +4,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="spaceship"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -70,10 +58,9 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-z web-search)
+plugins=(zsh-z web-search)
 
 source $ZSH/oh-my-zsh.sh
-
 
 # User configuration
 
@@ -125,7 +112,6 @@ zinit light-mode for \
 
 
 ### End of Zinit's installer chunk
-
 zinit light zdharma/fast-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
@@ -134,13 +120,18 @@ zplugin light zsh-users/zsh-history-substring-search
 
 
 ### nvm configuration
-
 export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+### Homebrew configuration
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 ### Theme configuration
+source $(brew --prefix)/opt/spaceship/spaceship.zsh
+
+# Set name of the theme to load
+ZSH_THEME="spaceship"
 
 SPACESHIP_PROMPT_ORDER=(
   dir           # Current directory section
@@ -157,25 +148,45 @@ SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_CHAR_SYMBOL="❯"
 SPACESHIP_CHAR_SUFFIX=" "
 
-### Homebrew configuration
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 ### Git via brew configuration
-
 export PATH="/usr/local/bin:$PATH"
 
-
 ### Pyenv configuration
-
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-export PYENV_VERSION=pypy-2.2.1
-export PIP_VERSION=21.2.4
+### Bat (better cat)
+export BAT_THEME=tokyonight_moon
+
+### fzf configuration
+eval "$(fzf --zsh)"
+
+### Setup fzf previews
+show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
+
+export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+
+# Advanced customization of fzf options via _fzf_comprun function
+# - The first argument to the function is the name of the command.
+# - You should make sure to pass the rest of the arguments to fzf.
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
+    export|unset) fzf --preview "eval 'echo ${}'"         "$@" ;;
+    ssh)          fzf --preview 'dig {}'                   "$@" ;;
+    *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
+  esac
+}
 
 ### List directories
 alias ls="eza -a --group-directories-first --icons --color=always"
 alias la="eza -a --group-directories-first --icons --color=always --oneline"
 
 ### Go to dotfiles directory
-alias dotfiles="cd ~/dotfiles"
+alias dotfiles="code ~/.dotfiles"
