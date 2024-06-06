@@ -4,7 +4,7 @@
 set -e
 
 # Print a step description
-TOTAL_STEPS=9
+TOTAL_STEPS=10
 STEP=1
 function step_msg {
 	printf "\033[36;1m[%s/%s] %s...\033[0m\n" "$STEP" "$TOTAL_STEPS" "$1";
@@ -94,6 +94,12 @@ stow --dotfiles zsh
 step_msg "Setting up the zsh as default shell"
 echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells >/dev/null
 sudo chsh -s "$(brew --prefix)/bin/zsh" "$USER"
+
+# -- Set up the bat theme ------------------------------------------------------
+step_msg "Setting up the bat theme"
+mkdir -p "$(bat --config-dir)/themes"
+cd "$(bat --config-dir)/themes" && curl --remote-name-all https://raw.githubusercontent.com/rose-pine/tm-theme/main/dist/themes/rose-pine{,-dawn,-moon}.tmTheme >/dev/null
+bat cache --build
 
 # -- Git -----------------------------------------------------------------------
 step_msg "Configuring Git"

@@ -158,7 +158,7 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 ### Bat (better cat)
-export BAT_THEME=tokyonight_moon
+export BAT_THEME=rose-pine-moon
 
 ### fzf configuration
 eval "$(fzf --zsh)"
@@ -200,3 +200,5 @@ alias dotfiles="code ~/.dotfiles"
 
 ### Zoxide (better cd)
 alias cd="z"
+
+alias cat="bat"
