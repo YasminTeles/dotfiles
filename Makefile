@@ -31,7 +31,8 @@ backup: ## Back up your applications list.
 github: ## Clone all projects of a username at once in Github.
 	@echo "Please enter some information"
 	@read -r -p "What is the organization or user name? " owner; \
-	cd ~/Projects && gh repo list $$owner --limit 4000 --no-archived | while read -r repository _; do gh repo clone $$repository ; done
+	read -r -p "What is the topic? " topic; \
+	cd ~/Projects && gh repo list $$owner --limit 4000 --no-archived --topic $$topic | while read -r repository _; do gh repo clone $$repository ; done
 	@echo "Check the Projects folder to view all cloned projects."
 
 check-scripts: ## Check the shell script.
