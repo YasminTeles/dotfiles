@@ -1,5 +1,6 @@
 [user]
 	name = Yasmin Teles
+	email = yasmin.gomes@olxbr.com
 
 [credential]
 	helper = cache
@@ -62,11 +63,3 @@
 
 [init]
 	defaultBranch = main
-
-# [merge]
-#     tool = vscode
-# [mergetool "vscode"]
-# [diff]
-#     tool = vscode
-# [difftool "vscode"]
-#     cmd = code --wait --diff $LOCAL $REMOTE
