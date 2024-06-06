@@ -23,6 +23,8 @@ brew "bat"
 brew "make"
 brew "fzf"
 brew "git-delta"
+brew "tldr"
+brew "thefuck"
 
 # Docker
 brew "docker"

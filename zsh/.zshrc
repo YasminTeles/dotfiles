@@ -184,6 +184,10 @@ _fzf_comprun() {
   esac
 }
 
+# thefuck configuration
+eval $(thefuck --alias)
+eval $(thefuck --alias fk)
+
 ### List directories
 alias ls="eza -a --group-directories-first --icons --color=always"
 alias la="eza -a --group-directories-first --icons --color=always --oneline"
