@@ -25,6 +25,7 @@ brew "fzf"
 brew "git-delta"
 brew "tldr"
 brew "thefuck"
+brew "zoxide"
 
 # Docker
 brew "docker"

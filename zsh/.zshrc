@@ -58,7 +58,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-z web-search)
+plugins=(web-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -184,9 +184,12 @@ _fzf_comprun() {
   esac
 }
 
-# thefuck configuration
+### thefuck configuration
 eval $(thefuck --alias)
 eval $(thefuck --alias fk)
+
+### Zoxide (better cd) configuration
+eval "$(zoxide init zsh)"
 
 ### List directories
 alias ls="eza -a --group-directories-first --icons --color=always"
@@ -194,3 +197,6 @@ alias la="eza -a --group-directories-first --icons --color=always --oneline"
 
 ### Go to dotfiles directory
 alias dotfiles="code ~/.dotfiles"
+
+### Zoxide (better cd)
+alias cd="z"
