@@ -51,7 +51,7 @@
 	prune = true
 
 [core]
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = "delta --width 150 | less -RFX"
 	excludesFile = ~/.gitignore
 	autocrlf = false
 
@@ -59,7 +59,18 @@
 	template = ~/.gitmessage
 
 [interactive]
-	diffFilter = diff-so-fancy --patch
+  diffFilter = delta --color-only
 
 [init]
-	defaultBranch = main
+  defaultBranch = main
+
+[delta]
+  navigate = true
+  side-by-side = true
+  tabs = 2
+
+[merge]
+  conflictstyle = diff3
+
+[diff]
+  colorMoved = default

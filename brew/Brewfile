@@ -21,8 +21,8 @@ brew "gh"
 brew "eza"
 brew "bat"
 brew "make"
-brew "diff-so-fancy"
 brew "fzf"
+brew "git-delta"
 
 # Docker
 brew "docker"
