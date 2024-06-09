@@ -28,6 +28,9 @@ brew "thefuck"
 brew "zoxide"
 
 # Docker
+cask "docker"
+brew "colima"
+
 brew "docker"
 brew "docker-compose"
 brew "docker-credential-helper"

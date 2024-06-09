@@ -1,4 +1,4 @@
-.PHONY: help check_clean del ssh backup github check-scripts
+.PHONY: help check_clean del ssh backup github colima check-scripts
 
 help: ## Show help.
 	@printf "A set of environment management commands.\n"
@@ -34,6 +34,11 @@ github: ## Clone all projects of a username at once in Github.
 	read -r -p "What is the topic? " topic; \
 	cd ~/Projects && gh repo list $$owner --limit 4000 --no-archived --topic $$topic | while read -r repository _; do gh repo clone $$repository ; done
 	@echo "Check the Projects folder to view all cloned projects."
+
+colima: ## Setting up Colima and create a docker compose plugin.
+	@echo '{"credsStore":"osxkeychain"}' > ~/.docker/config.json
+	@mkdir -p ~/.docker/cli-plugins
+	@ln -sfn $(brew --prefix)/opt/docker-compose/bin/docker-compose ~/.docker/cli-plugins/docker-compose
 
 check-scripts: ## Check the shell script.
 	@echo "Checking the shell script..."
