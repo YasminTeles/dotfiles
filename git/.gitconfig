@@ -2,6 +2,9 @@
 	name = Yasmin Teles
 	email = yasmin.gomes@olxbr.com
 
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+
 [credential]
 	helper = cache
 
@@ -59,18 +62,18 @@
 	template = ~/.gitmessage
 
 [interactive]
-  diffFilter = delta --color-only
+	diffFilter = delta --color-only
 
 [init]
-  defaultBranch = main
+	defaultBranch = main
 
 [delta]
-  navigate = true
-  side-by-side = true
-  tabs = 2
+	navigate = true
+	side-by-side = true
+	tabs = 2
 
 [merge]
-  conflictstyle = diff3
+	conflictstyle = diff3
 
 [diff]
-  colorMoved = default
+	colorMoved = default

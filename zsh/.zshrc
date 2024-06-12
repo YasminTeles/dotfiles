@@ -202,3 +202,6 @@ alias dotfiles="code ~/.dotfiles"
 alias cd="z"
 
 alias cat="bat"
+
+### Private repositories configuration
+export GOPRIVATE="github.com/olxbr/*"
