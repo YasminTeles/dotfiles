@@ -13,6 +13,10 @@ Are you curious about dotfiles? Check out the guide [Customize, Simplify, and Au
 
 Feel free to explore, adapt, and copy parts of these dotfiles into your own dotfiles. Enjoy the customization journey!
 
+## Screenshots
+
+![Terminal](/images/terminal.webp "Terminal")
+
 ## Installation
 
 Insert this into a macOS terminal. The script will detail its actions and then halt before executing them.
@@ -25,7 +29,8 @@ Insert this into a macOS terminal. The script will detail its actions and then h
 
 All my command-line tools, applications, and their configurations. Have fun 😎💅
 
-- iTerm, zsh and Oh My Zsh. Spaceship for theme.
+- iTerm with rose-pine moon theme.
+- zsh and Oh My Zsh with Spaceship theme.
 - Git and SSH key generation. See [gitconfig](/git/.gitconfig) for more information about my Git aliases.
 - Create a Projects folder. For clone all projects in GitHub, try `make github`.
 - Homebrew and a bunch of productivity apps. See [Brewfile](/brew/Brewfile) for more information.
