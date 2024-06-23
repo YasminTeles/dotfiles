@@ -1,4 +1,4 @@
-.PHONY: help check_clean del ssh backup github colima check-scripts
+.PHONY: help check_clean del ssh backup github gh-dash colima check-scripts
 
 help: ## Show help.
 	@printf "A set of environment management commands.\n"
@@ -12,7 +12,7 @@ check_clean:
 
 del: check_clean ## Delete your development environment.
 	@echo "Deleting all dotfiles, applications, and folders..."
-	@stow --dotfiles -D git ssh brew zsh
+	@stow --dotfiles -D git ssh brew zsh gh-dash
 	@rm -rf ~/Projects
 	@rm -rf ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.pub
 	@rm -rf ~/.oh-my-zsh
@@ -34,6 +34,10 @@ github: ## Clone all projects of a username at once in Github.
 	read -r -p "What is the topic? " topic; \
 	cd ~/Projects && gh repo list $$owner --limit 4000 --no-archived --topic $$topic | while read -r repository _; do gh repo clone $$repository ; done
 	@echo "Check the Projects folder to view all cloned projects."
+
+gh-dash: ## Install gh-dash extension.
+	@gh extension install dlvhdr/gh-dash
+	@stow gh-dash
 
 colima: ## Setting up Colima and create a docker compose plugin.
 	@echo '{"credsStore":"osxkeychain"}' > ~/.docker/config.json

@@ -49,7 +49,7 @@ then
 
   # -- Symlinks ----------------------------------------------------------------
   step_msg "Removing all symlinks"
-  cd ~/.dotfiles && stow --dotfiles -D git ssh brew zsh
+  cd ~/.dotfiles && stow --dotfiles -D git ssh brew zsh gh-dash
 
   # -- Project folder ----------------------------------------------------------
   step_msg "Removing the Project directory"
