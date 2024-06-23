@@ -1,0 +1,27 @@
+prSections:
+  - title: My Pull Requests
+    filters: is:open author:@me
+    layout:
+      author:
+        hidden: true
+
+  - title: Needs My Review
+    filters: is:open review-requested:@me -author:app/dependabot -author:olxbr-bot
+
+  - title: Dependabot Review
+    filters: is:open review-requested:@me author:app/dependabot
+    limit: 50
+    layout:
+      author:
+        hidden: true
+
+  - title: Subscribed
+    filters: is:open -author:@me -author:app/dependabot org:olxbr author:joaolcaas author:tamioliveira author:higor-tavares author:rodrigohsb author:lpenczek-olx
+
+defaults:
+  layout:
+    prs:
+      repo:
+        grow: true,
+        width: 50
+        hidden: false
