@@ -10,4 +10,6 @@ updates:
     commit-message:
       prefix: "chore"
     labels:
-      - 'dependencies'
+      - "dependencies"
+    assignees:
+      - "YasminTeles"
