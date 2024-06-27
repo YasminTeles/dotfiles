@@ -102,7 +102,7 @@ bat cache --build
 
 # -- Set up the iTerm2 ---------------------------------------------------------
 step_msg "Setting up the iTerm2"
-sh ./iterm/settings.sh
+sh ~/.dotfiles/iterm/settings.sh
 
 # -- Git -----------------------------------------------------------------------
 step_msg "Configuring Git"
