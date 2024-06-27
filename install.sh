@@ -71,13 +71,12 @@ brew install git stow --quiet >/dev/null
 # -- Dotfiles -----------------------------------------------------------------
 step_msg "Setting up dotfiles"
 git clone https://github.com/YasminTeles/dotfiles.git ~/.dotfiles >/dev/null
-
-rm -rf ~/.gitconfig
 cd ~/.dotfiles
-stow --dotfiles git ssh brew
 
 # -- Productivity Apps ---------------------------------------------------------
 step_msg "Installing the productivity apps"
+stow --dotfiles brew
+
 if [ "$CI" = true ] ; then
   brew bundle install --file=~/Brewfile
 else
@@ -107,10 +106,13 @@ sh ./iterm/settings.sh
 
 # -- Git -----------------------------------------------------------------------
 step_msg "Configuring Git"
+rm -rf ~/.gitconfig
+stow --dotfiles git
 git config --global user.email "$GIT_EMAIL"
 
 # -- SSH Key -------------------------------------------------------------------
 step_msg "Generating a new SSH key"
+stow --dotfiles ssh
 rm -rf ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.pub
 ssh-keygen -t ed25519 -C "$GIT_EMAIL" -f ~/.ssh/id_ed25519 -q -N "" >/dev/null
 eval "$(ssh-agent -s)" >/dev/null
