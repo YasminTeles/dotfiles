@@ -62,20 +62,23 @@ fi
 
 # -- Project folder -----------------------------------------------------------
 step_msg "Creating the Projects folder"
+
 mkdir ~/Projects
 
 # -- Dependencies -------------------------------------------------------------
 step_msg "Installing dependencies"
+
 brew install git stow --quiet >/dev/null
 
 # -- Dotfiles -----------------------------------------------------------------
 step_msg "Setting up dotfiles"
+
 git clone https://github.com/YasminTeles/dotfiles.git ~/.dotfiles >/dev/null
-cd ~/.dotfiles
 
 # -- Productivity Apps ---------------------------------------------------------
 step_msg "Installing the productivity apps"
-stow --dotfiles brew
+
+cd ~/.dotfiles && stow brew
 
 if [ "$CI" = true ] ; then
   brew bundle install --file=~/Brewfile
@@ -85,34 +88,43 @@ fi
 
 # -- Oh My Zsh -----------------------------------------------------------------
 step_msg "Installing the Oh My Zsh"
+
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended >/dev/null
+
 rm -rf ~/.zshrc
-stow --dotfiles zsh
+cd ~/.dotfiles && stow zsh
 
 # -- Set up the zsh as default shell -------------------------------------------
 step_msg "Setting up the zsh as default shell"
+
 echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells >/dev/null
 sudo chsh -s "$(brew --prefix)/bin/zsh" "$USER"
 
 # -- Set up the bat theme ------------------------------------------------------
 step_msg "Setting up the bat theme"
+
 mkdir -p "$(bat --config-dir)/themes"
 cd "$(bat --config-dir)/themes" && curl --remote-name-all https://raw.githubusercontent.com/rose-pine/tm-theme/main/dist/themes/rose-pine{,-dawn,-moon}.tmTheme >/dev/null
 bat cache --build
 
 # -- Set up the iTerm2 ---------------------------------------------------------
 step_msg "Setting up the iTerm2"
+
 sh ~/.dotfiles/iterm/settings.sh
 
 # -- Git -----------------------------------------------------------------------
 step_msg "Configuring Git"
+
 rm -rf ~/.gitconfig
-stow --dotfiles git
+cd ~/.dotfiles && stow --dotfiles git
+
 git config --global user.email "$GIT_EMAIL"
 
 # -- SSH Key -------------------------------------------------------------------
 step_msg "Generating a new SSH key"
-stow --dotfiles ssh
+
+cd ~/.dotfiles && stow ssh
+
 rm -rf ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.pub
 ssh-keygen -t ed25519 -C "$GIT_EMAIL" -f ~/.ssh/id_ed25519 -q -N "" >/dev/null
 eval "$(ssh-agent -s)" >/dev/null
