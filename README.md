@@ -29,7 +29,7 @@ Insert this into a macOS terminal. The script will detail its actions and then h
 
 All my command-line tools, applications, and their configurations. Have fun 😎💅
 
-- iTerm with rose-pine moon theme.
+- iTerm2 with rose-pine moon theme. All my iTerm2 configurations will be linked via MacOS configuration. Needs manual restart iTerm2 afterwards.
 - zsh and Oh My Zsh with Spaceship theme.
 - Git and SSH key generation. See [gitconfig](/git/.gitconfig) for more information about my Git aliases.
 - Create a Projects folder. For clone all projects in GitHub, try `make github`.
