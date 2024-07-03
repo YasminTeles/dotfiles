@@ -137,6 +137,7 @@ SPACESHIP_PROMPT_ORDER=(
   dir           # Current directory section
   host          # Hostname section
   git           # Git section (git_branch + git_status)
+  venv          # venv section (show the name of the venv when it is activated)
   exec_time     # Execution time
   line_sep      # Line break
   # vi_mode       # Vi-mode indicator
@@ -196,7 +197,7 @@ alias ls="eza -a --group-directories-first --icons --color=always"
 alias la="eza -a --group-directories-first --icons --color=always --oneline"
 
 ### Go to dotfiles directory
-alias dotfiles="code ~/.dotfiles"
+alias dotfiles="code -n ~/.dotfiles"
 
 ### Zoxide (better cd)
 alias cd="z"
