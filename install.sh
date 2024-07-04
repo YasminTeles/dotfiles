@@ -4,7 +4,7 @@
 set -e
 
 # Print a step description
-TOTAL_STEPS=11
+TOTAL_STEPS=12
 STEP=1
 function step_msg {
 	printf "\033[36;1m[%s/%s] %s...\033[0m\n" "$STEP" "$TOTAL_STEPS" "$1";
@@ -111,6 +111,11 @@ bat cache --build
 step_msg "Setting up the iTerm2"
 
 sh ~/.dotfiles/iterm/settings.sh
+
+# -- Set up the macos ----------------------------------------------------------
+step_msg "Setting up the macos"
+
+sh ~/.dotfiles/macos/defaults.sh
 
 # -- Git -----------------------------------------------------------------------
 step_msg "Configuring Git"
