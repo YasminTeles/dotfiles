@@ -16,7 +16,7 @@ prSections:
         hidden: true
 
   - title: Subscribed
-    filters: is:open -author:@me -author:app/dependabot org:olxbr author:joaolcaas author:tamioliveira author:higor-tavares author:rodrigohsb author:lpenczek-olx
+    filters: is:open -author:@me -author:app/dependabot org:olxbr author:joaolcaas author:tamioliveira author:higor-tavares author:rodrigohsb
 
 defaults:
   layout:
@@ -25,3 +25,6 @@ defaults:
         grow: true,
         width: 50
         hidden: false
+
+pager:
+  diff: delta
