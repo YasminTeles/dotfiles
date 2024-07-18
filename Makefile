@@ -1,4 +1,4 @@
-.PHONY: help check_clean del ssh backup github gh-dash colima check-scripts
+.PHONY: help check_clean del ssh backup github gh-dash colima check-scripts macos
 
 help: ## Show help.
 	@printf "A set of environment management commands.\n"
@@ -47,3 +47,6 @@ colima: ## Setting up Colima and create a docker compose plugin.
 check-scripts: ## Check the shell script.
 	@echo "Checking the shell script..."
 	@shellcheck *.sh
+
+macos: ## Setting up MacOS
+	@sh ~/.dotfiles/iterm/settings.sh
