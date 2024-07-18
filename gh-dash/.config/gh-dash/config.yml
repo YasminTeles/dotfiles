@@ -26,5 +26,13 @@ defaults:
         width: 50
         hidden: false
 
+repoPaths:
+  :owner/:repo: ~/Projects/:repo
+
+keybindings:
+  prs:
+    - key: v
+      command:  code -n {{.RepoPath}}
+
 pager:
   diff: delta
