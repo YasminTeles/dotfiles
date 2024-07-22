@@ -204,5 +204,7 @@ alias cd="z"
 
 alias cat="bat"
 
-### Private repositories configuration
-export GOPRIVATE="github.com/olxbr/*"
+### Java (JDK) configuration
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+#  sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk

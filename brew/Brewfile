@@ -43,6 +43,8 @@ brew "nvm"
 brew "yarn"
 brew "pyenv"
 brew "pyenv-virtualenv"
+brew "java"
+brew "kotlin"
 
 # Development apps
 cask "visual-studio-code"
