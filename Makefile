@@ -50,3 +50,4 @@ check-scripts: ## Check the shell script.
 
 macos: ## Setting up MacOS
 	@sh ~/.dotfiles/iterm/settings.sh
+	@sh ~/.dotfiles/macos/defaults.sh
