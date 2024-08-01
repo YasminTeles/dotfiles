@@ -11,5 +11,5 @@ updates:
       prefix: "chore"
     labels:
       - "dependencies"
-    assignees:
+    reviewers:
       - "YasminTeles"
