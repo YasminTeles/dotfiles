@@ -9,7 +9,7 @@ prSections:
     filters: is:open review-requested:@me -author:app/dependabot -author:olxbr-bot
 
   - title: Dependabot Review
-    filters: is:open review-requested:@me author:app/dependabot
+    filters: is:open review-requested:@me author:app/dependabot -owner:YasminTeles
     limit: 50
     layout:
       author:
@@ -17,6 +17,9 @@ prSections:
 
   - title: Subscribed
     filters: is:open -author:@me -author:app/dependabot org:olxbr author:joaolcaas author:tamioliveira author:higor-tavares author:rodrigohsb
+
+  - title: My Projects
+    filters: is:open review-requested:@me author:app/dependabot owner:YasminTeles
 
 defaults:
   layout:
