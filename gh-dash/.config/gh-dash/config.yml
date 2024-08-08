@@ -36,6 +36,8 @@ keybindings:
   prs:
     - key: v
       command:  code -n {{.RepoPath}}
+    - key: g
+      command: cd {{.RepoPath}} && git rup
 
 pager:
   diff: delta
