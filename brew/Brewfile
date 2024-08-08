@@ -6,6 +6,7 @@ tap "homebrew/services"
 brew "stow"
 brew "git"
 brew "shellcheck"
+brew "dockutil"
 
 # Terminal
 brew "spaceship"

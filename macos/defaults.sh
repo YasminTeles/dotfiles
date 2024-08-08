@@ -46,6 +46,31 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 # Disable recent tags section in Finder.
 defaults write com.apple.Finder ShowRecentTags -bool false
 
-# Restarts cfprefsd and Finder
-killAll cfprefsd
+# Restart Finder
 killAll Finder
+
+###############################################################################
+# Dock                                                                        #
+###############################################################################
+
+# Add my favorite applications in the Dock
+dockutil --no-restart --remove all
+dockutil --no-restart --add "/Applications/Spotify.app"
+dockutil --no-restart --add "/Applications/Notion.app"
+dockutil --no-restart --add "/Applications/Notion Calendar.app"
+dockutil --no-restart --add "/Applications/Slack.app"
+dockutil --no-restart --add "/Applications/Google Chrome.app"
+dockutil --no-restart --add "/Applications/Visual Studio Code.app"
+dockutil --no-restart --add "/Applications/iTerm.app"
+
+# Set the icon size of Dock items to 56 pixels
+defaults write com.apple.dock tilesize -int 56
+
+# Automatically hide and show the Dock
+defaults write com.apple.dock autohide -bool false
+
+# Show recent applications in Dock
+defaults write com.apple.dock "show-recents" -bool false
+
+# Restart Dock
+killall Dock
