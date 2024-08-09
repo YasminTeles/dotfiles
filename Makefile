@@ -1,4 +1,4 @@
-.PHONY: help check_clean del ssh backup github gh-dash colima check-scripts macos
+.PHONY: help check_clean del ssh backup github gh-dash gh-login colima check-scripts macos
 
 help: ## Show help.
 	@printf "A set of environment management commands.\n"
@@ -22,13 +22,13 @@ del: check_clean ## Delete your development environment.
 ssh: ## Copy the SSH public key to your clipboard.
 	@pbcopy < ~/.ssh/id_ed25519.pub
 	@echo "The SSH public key is available in your clipboard."
-	@echo "Add the SSH public key to your account on GitHub or GitLab. See your profile settings for more information."
+	@echo "Add the SSH public key to your account on GitLab. See your profile settings for more information."
 
 backup: ## Back up your applications list.
 	@echo "Backing up your applications list..."
 	@brew bundle dump --file=./brew/Brewfile --force
 
-github: ## Clone all projects of a username at once in Github.
+github: gh-dash gh-login ## Clone all projects of a username at once in Github.
 	@echo "Please enter some information"
 	@read -r -p "What is the organization or user name? " owner; \
 	read -r -p "What is the topic? " topic; \
@@ -38,6 +38,9 @@ github: ## Clone all projects of a username at once in Github.
 gh-dash: ## Install gh-dash extension.
 	@gh extension install dlvhdr/gh-dash
 	@stow gh-dash
+
+gh-login: ## Login to GitHub.
+	@gh auth login --git-protocol ssh --web
 
 colima: ## Setting up Colima and create a docker compose plugin.
 	@echo '{"credsStore":"osxkeychain"}' > ~/.docker/config.json

@@ -139,9 +139,8 @@ ssh-add ~/.ssh/id_ed25519 >/dev/null
 printf "\n"
 title_msg "Next steps:"
 
-echo -e "- Run \033[1mmake ssh\033[0m to copy your SSH public Key and past it into your GitHub or GitLab account."
+echo -e "- Run \033[1mmake ssh\033[0m to copy your SSH public Key and past it into your GitLab account."
 echo -e "- If you will use GitHub, run \033[1mmake github\033[0m to clone all GitHub repository for Projects directory."
-echo -e "- If you will use GitHub, run \033[1mmake gh-dash\033[0m to install and enable gh dashboard in your terminal."
 
 # -- Happy end -----------------------------------------------------------------
 success_msg "Everything is ready!"
