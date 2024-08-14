@@ -47,6 +47,12 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 # Disable recent tags section in Finder.
 defaults write com.apple.Finder ShowRecentTags -bool false
 
+# Avoid creating .DS_Store files on network.
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+
+# Avoid creating .DS_Store files on USB volumes.
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
 # Restart Finder
 killAll Finder
 
