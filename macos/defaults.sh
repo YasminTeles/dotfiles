@@ -3,6 +3,7 @@
 ### References:
 # https://github.com/frankroeder/dotfiles/blob/master/macos/finder.bash
 # https://github.com/mathiasbynens/dotfiles/blob/main/.macos
+# https://github.com/pawelgrzybek/dotfiles/blob/master/setup-macos.sh
 
 echo "Setting up macos..."
 
@@ -74,3 +75,13 @@ defaults write com.apple.dock "show-recents" -bool false
 
 # Restart Dock
 killall Dock
+
+###############################################################################
+# Menu Bar                                                                    #
+###############################################################################
+
+# Don't show Spotlight in Menu Bar
+defaults -currentHost write com.apple.Spotlight MenuItemHidden -int 1
+
+# Don't show Now Playing in Menu Bar
+defaults write "com.apple.airplay" "NSStatusItem Visible NowPlaying" -bool false
