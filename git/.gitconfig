@@ -26,7 +26,7 @@
 	ignore = !sh -c '!gi() { curl -sL https://www.toptal.com/developers/gitignore/api/$@ ;}; gi'
 
 	# Remote
-	rup = !sh -c 'git remote update -p && git upm && git la' -
+	rup = !sh -c 'git remote update -p && git upm && git dbm && git la' -
 	fat = "fetch --all --tags"
 
 	# Branchs
@@ -38,6 +38,10 @@
 	bls = branch -vva
 
 	dt = !sh -c 'git tag -d $1 && git push origin :$1' -
+
+	# Remove branches that have already been merged with main.
+	# a.k.a. ‘delete branch merged’
+	dbm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 
 	up = !sh -c 'git fetch origin $1:$1' -
 	upm = fetch origin main:main
