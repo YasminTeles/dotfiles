@@ -4,6 +4,7 @@
 # https://github.com/frankroeder/dotfiles/blob/master/macos/finder.bash
 # https://github.com/mathiasbynens/dotfiles/blob/main/.macos
 # https://github.com/pawelgrzybek/dotfiles/blob/master/setup-macos.sh
+# https://developer.apple.com/documentation/devicemanagement/finder
 
 echo "Setting up macos..."
 
@@ -91,3 +92,10 @@ defaults -currentHost write com.apple.Spotlight MenuItemHidden -int 1
 
 # Don't show Now Playing in Menu Bar
 defaults write "com.apple.airplay" "NSStatusItem Visible NowPlaying" -bool false
+
+###############################################################################
+# Lock Screen                                                                 #
+###############################################################################
+
+# Start Screen Saver when inactive: Never
+defaults -currentHost write com.apple.screensaver idleTime -int 0
