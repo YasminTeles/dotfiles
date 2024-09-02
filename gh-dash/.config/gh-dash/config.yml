@@ -25,7 +25,7 @@ defaults:
   layout:
     prs:
       repo:
-        grow: true,
+        grow: true
         width: 50
         hidden: false
 
