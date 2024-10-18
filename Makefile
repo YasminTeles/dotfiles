@@ -1,4 +1,4 @@
-.PHONY: help check_clean del ssh backup github gh-dash gh-login colima check-scripts macos
+.PHONY: help check_clean del ssh backup github gh-dash gh-login colima check-scripts macos fonts
 
 help: ## Show help.
 	@printf "A set of environment management commands.\n"
@@ -12,7 +12,7 @@ check_clean:
 
 del: check_clean ## Delete your development environment.
 	@echo "Deleting all dotfiles, applications, and folders..."
-	@stow --dotfiles -D git ssh brew zsh gh-dash
+	@stow --dotfiles -D git ssh brew zsh gh-dash fonts
 	@rm -rf ~/Projects
 	@rm -rf ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.pub
 	@rm -rf ~/.oh-my-zsh
@@ -54,3 +54,6 @@ check-scripts: ## Check the shell script.
 macos: ## Setting up MacOS
 	@sh ~/.dotfiles/iterm/settings.sh
 	@sh ~/.dotfiles/macos/defaults.sh
+
+fonts: ## Setting up custom fonts.
+	@stow -t ~/Library/Fonts fonts

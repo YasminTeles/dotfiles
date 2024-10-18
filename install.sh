@@ -4,7 +4,7 @@
 set -e
 
 # Print a step description
-TOTAL_STEPS=12
+TOTAL_STEPS=13
 STEP=1
 function step_msg {
 	printf "\033[36;1m[%s/%s] %s...\033[0m\n" "$STEP" "$TOTAL_STEPS" "$1";
@@ -116,6 +116,11 @@ sh ~/.dotfiles/iterm/settings.sh
 step_msg "Setting up the macos"
 
 sh ~/.dotfiles/macos/defaults.sh
+
+# -- Set up fonts --------------------------------------------------------------
+step_msg "Setting up the custom fonts"
+
+cd ~/.dotfiles && stow -t ~/Library/Fonts fonts
 
 # -- Git -----------------------------------------------------------------------
 step_msg "Configuring Git"
