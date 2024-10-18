@@ -1,4 +1,4 @@
-.PHONY: help check_clean del ssh backup github gh-dash gh-login colima check-scripts macos
+.PHONY: help check_clean del ssh backup github gh-dash gh-login colima check-scripts macos fonts
 
 help: ## Show help.
 	@printf "A set of environment management commands.\n"
@@ -54,3 +54,7 @@ check-scripts: ## Check the shell script.
 macos: ## Setting up MacOS
 	@sh ~/.dotfiles/iterm/settings.sh
 	@sh ~/.dotfiles/macos/defaults.sh
+
+fonts: ## Setting up custom fonts.
+	# @cp ./fonts ~/Library/Fonts
+	@stow -D ~/Library/Fonts -S ./fonts
