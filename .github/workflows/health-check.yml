@@ -67,7 +67,7 @@ jobs:
     steps:
       - name: Post to Slack
         id: slack
-        uses: slackapi/slack-github-action@v1.27.0
+        uses: slackapi/slack-github-action@v2.0.0
         with:
           channel-id: ${{ secrets.SLACK_CHANNEL }}
           slack-message: ":eyes: *${{ github.repository }}* GitHub Actions: ${{ github.workflow }} #${{ github.run_number }} failed.\n<${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}|${{ github.event.head_commit.message }}>"
