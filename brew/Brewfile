@@ -36,6 +36,9 @@ brew "docker-compose"
 brew "docker-credential-helper"
 brew "docker-machine"
 
+# Cloud tools
+brew "awscli"
+
 # Languages
 brew "golang"
 brew "node"
