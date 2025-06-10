@@ -40,6 +40,9 @@ brew "docker-machine"
 # Cloud tools
 brew "awscli"
 brew "hashicorp/tap/terraform"
+brew "k9s"
+brew "kubectl"
+brew "kubectx"
 
 # Languages
 brew "golang"
