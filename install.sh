@@ -157,6 +157,7 @@ ssh-add ~/.ssh/id_ed25519
 printf "\n"
 title_msg "Next steps:"
 
+echo -e "- Run \033[1gh auth login\033[0m to save your SSH public Key into your Github account."
 echo -e "- Run \033[1mmake ssh\033[0m to copy your SSH public Key and past it into your GitLab account."
 echo -e "- If you will use GitHub, run \033[1mmake github\033[0m to clone all GitHub repository for Projects directory."
 
