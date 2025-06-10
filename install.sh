@@ -58,7 +58,7 @@ fi
 
 title_msg "Please wait! It will configure your workspace."
 
-# -- Homebrew -----------------------------------------------------------------
+# -- 1. Homebrew -----------------------------------------------------------------
 # shellcheck disable=SC2046
 if test ! $(which brew); then
   step_msg "Installing the Homebrew"
@@ -70,22 +70,26 @@ else
   brew upgrade --quiet
 fi
 
-# -- Project folder -----------------------------------------------------------
+# -- 2. Project folder -----------------------------------------------------------
 step_msg "Creating the Projects folder"
 
-mkdir ~/Projects
+if [ ! -d "$HOME/Projects" ]; then
+  mkdir ~/Projects
+fi
 
-# -- Dependencies -------------------------------------------------------------
+# -- 3. Dependencies -------------------------------------------------------------
 step_msg "Installing dependencies"
 
 brew install git stow --quiet >/dev/null
 
-# -- Dotfiles -----------------------------------------------------------------
+# -- 4. Dotfiles -----------------------------------------------------------------
 step_msg "Setting up dotfiles"
 
-git clone https://github.com/YasminTeles/dotfiles.git ~/.dotfiles >/dev/null
+if [ ! -d "$HOME/.dotfiles" ]; then
+  git clone https://github.com/YasminTeles/dotfiles.git ~/.dotfiles >/dev/null
+fi
 
-# -- Productivity Apps ---------------------------------------------------------
+# -- 5. Productivity Apps ---------------------------------------------------------
 step_msg "Installing the productivity apps"
 
 cd ~/.dotfiles && stow brew
@@ -96,7 +100,7 @@ else
   brew bundle install --file=~/Brewfile --quiet >/dev/null
 fi
 
-# -- Oh My Zsh -----------------------------------------------------------------
+# -- 6. Oh My Zsh -----------------------------------------------------------------
 step_msg "Installing the Oh My Zsh"
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended >/dev/null
@@ -104,35 +108,38 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 rm -rf ~/.zshrc
 cd ~/.dotfiles && stow zsh
 
-# -- Set up the zsh as default shell -------------------------------------------
+# -- 7. Set up the zsh as default shell -------------------------------------------
 step_msg "Setting up the zsh as default shell"
 
 echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells >/dev/null
 sudo chsh -s "$(brew --prefix)/bin/zsh" "$USER"
 
-# -- Set up the bat theme ------------------------------------------------------
+# -- 8. Set up the bat theme ------------------------------------------------------
 step_msg "Setting up the bat theme"
 
-mkdir -p "$(bat --config-dir)/themes"
+if [ ! -d "$(bat --config-dir)/themes" ]; then
+  mkdir -p "$(bat --config-dir)/themes"
+fi
+
 cd "$(bat --config-dir)/themes" && curl --remote-name-all https://raw.githubusercontent.com/rose-pine/tm-theme/main/dist/themes/rose-pine{,-dawn,-moon}.tmTheme >/dev/null
 bat cache --build
 
-# -- Set up the iTerm2 ---------------------------------------------------------
+# -- 9. Set up the iTerm2 ---------------------------------------------------------
 step_msg "Setting up the iTerm2"
 
 sh ~/.dotfiles/iterm/settings.sh
 
-# -- Set up the macos ----------------------------------------------------------
+# -- 10. Set up the macos ---------------------------------------------------------
 step_msg "Setting up the macos"
 
 sh ~/.dotfiles/macos/defaults.sh
 
-# -- Set up fonts --------------------------------------------------------------
+# -- 11. Set up fonts -------------------------------------------------------------
 step_msg "Setting up the custom fonts"
 
 cd ~/.dotfiles && stow -t ~/Library/Fonts fonts
 
-# -- Git -----------------------------------------------------------------------
+# -- 12. Git ----------------------------------------------------------------------
 step_msg "Configuring Git"
 
 rm -rf ~/.gitconfig
@@ -140,7 +147,7 @@ cd ~/.dotfiles && stow --dotfiles git
 
 git config --global user.email "$GIT_EMAIL"
 
-# -- SSH Key -------------------------------------------------------------------
+# -- 13. SSH Key ------------------------------------------------------------------
 step_msg "Generating a new SSH key"
 
 cd ~/.dotfiles && stow ssh
