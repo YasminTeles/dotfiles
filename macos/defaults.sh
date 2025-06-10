@@ -99,3 +99,10 @@ defaults write "com.apple.airplay" "NSStatusItem Visible NowPlaying" -bool false
 
 # Start Screen Saver when inactive: Never
 defaults -currentHost write com.apple.screensaver idleTime -int 0
+
+###############################################################################
+# Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
+###############################################################################
+
+# Disable “natural” (Lion-style) scrolling
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
