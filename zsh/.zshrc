@@ -204,10 +204,6 @@ alias cd="z"
 
 alias cat="bat"
 
-### Java (JDK) configuration
-export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
-export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
-
 # export GOROOT=/usr/local/go
 export GOPATH=~/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
