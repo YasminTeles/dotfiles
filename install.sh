@@ -62,7 +62,7 @@ title_msg "Please wait! It will configure your workspace."
 # shellcheck disable=SC2046
 if test ! $(which brew); then
   step_msg "Installing the Homebrew"
-  NONINTERACTIVE=1 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" >/dev/null
+  NONINTERACTIVE=1 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   eval "$(/opt/homebrew/bin/brew shellenv)"
 else
   step_msg "Updating the Homebrew"
@@ -80,13 +80,13 @@ fi
 # -- 3. Dependencies -------------------------------------------------------------
 step_msg "Installing dependencies"
 
-brew install git stow --quiet >/dev/null
+brew install git stow
 
 # -- 4. Dotfiles -----------------------------------------------------------------
 step_msg "Setting up dotfiles"
 
 if [ ! -d "$HOME/.dotfiles" ]; then
-  git clone https://github.com/YasminTeles/dotfiles.git ~/.dotfiles >/dev/null
+  git clone https://github.com/YasminTeles/dotfiles.git ~/.dotfiles
 fi
 
 # -- 5. Productivity Apps ---------------------------------------------------------
@@ -94,16 +94,12 @@ step_msg "Installing the productivity apps"
 
 cd ~/.dotfiles && stow brew
 
-if [ "$CI" = true ] ; then
-  brew bundle install --file=~/Brewfile
-else
-  brew bundle install --file=~/Brewfile --quiet >/dev/null
-fi
+brew bundle check || brew bundle install --file=~/Brewfile --force
 
 # -- 6. Oh My Zsh -----------------------------------------------------------------
 step_msg "Installing the Oh My Zsh"
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended >/dev/null
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 rm -rf ~/.zshrc
 cd ~/.dotfiles && stow zsh
@@ -111,7 +107,7 @@ cd ~/.dotfiles && stow zsh
 # -- 7. Set up the zsh as default shell -------------------------------------------
 step_msg "Setting up the zsh as default shell"
 
-echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells >/dev/null
+echo "$(brew --prefix)/bin/zsh" | sudo tee -a /etc/shells
 sudo chsh -s "$(brew --prefix)/bin/zsh" "$USER"
 
 # -- 8. Set up the bat theme ------------------------------------------------------
@@ -121,7 +117,7 @@ if [ ! -d "$(bat --config-dir)/themes" ]; then
   mkdir -p "$(bat --config-dir)/themes"
 fi
 
-cd "$(bat --config-dir)/themes" && curl --remote-name-all https://raw.githubusercontent.com/rose-pine/tm-theme/main/dist/themes/rose-pine{,-dawn,-moon}.tmTheme >/dev/null
+cd "$(bat --config-dir)/themes" && curl --remote-name-all https://raw.githubusercontent.com/rose-pine/tm-theme/main/dist/themes/rose-pine{,-dawn,-moon}.tmTheme
 bat cache --build
 
 # -- 9. Set up the iTerm2 ---------------------------------------------------------
@@ -153,9 +149,9 @@ step_msg "Generating a new SSH key"
 cd ~/.dotfiles && stow ssh
 
 rm -rf ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.pub
-ssh-keygen -t ed25519 -C "$GIT_EMAIL" -f ~/.ssh/id_ed25519 -q -N "" >/dev/null
-eval "$(ssh-agent -s)" >/dev/null
-ssh-add ~/.ssh/id_ed25519 >/dev/null
+ssh-keygen -t ed25519 -C "$GIT_EMAIL" -f ~/.ssh/id_ed25519 -q -N ""
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
 
 # -- Next Steps ----------------------------------------------------------------
 printf "\n"
