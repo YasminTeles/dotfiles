@@ -67,6 +67,7 @@ cask "spotify"
 # Communication apps
 cask "zoom"
 cask "slack"
+cask "grammarly-desktop"
 
 # Utilities apps
 cask "rectangle"
