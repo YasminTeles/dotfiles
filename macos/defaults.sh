@@ -106,3 +106,13 @@ defaults -currentHost write com.apple.screensaver idleTime -int 0
 
 # Disable “natural” (Lion-style) scrolling
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+
+###############################################################################
+# Display                                                                     #
+###############################################################################
+
+# Mission Controll > Displays have separate Spaces: False
+defaults write com.apple.spaces "spans-displays" -bool "false" && killall SystemUIServer
+
+# Disable true tone on the display
+# defaults write -domain com.apple.universalaccess TrueTone -bool FALSE
