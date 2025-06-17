@@ -37,11 +37,15 @@ brew "docker-credential-helper"
 brew "docker-machine"
 
 # Cloud tools
-brew "awscli"
 brew "hashicorp/tap/terraform"
 brew "k9s"
 brew "kubectl"
 brew "kubectx"
+
+# AWS
+brew "awscli"
+brew "aws-iam-authenticator"
+cask "aws-vpn-client"
 
 # Languages
 brew "golang"
