@@ -38,6 +38,7 @@ brew "docker-machine"
 
 # Cloud tools
 brew "hashicorp/tap/terraform"
+brew "pulumi"
 brew "k9s"
 brew "kubectl"
 brew "kubectx"
