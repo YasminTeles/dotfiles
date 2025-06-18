@@ -3,4 +3,6 @@ id_ed25519.pub
 known_hosts
 known_hosts.old
 
+.env
+
 .DS_Store
