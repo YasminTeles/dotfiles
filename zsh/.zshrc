@@ -158,7 +158,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-### Bat (better cat)
+### Bat theme (better cat)
 export BAT_THEME=rose-pine-moon
 
 ### fzf configuration
@@ -197,13 +197,19 @@ alias ls="eza -a --group-directories-first --icons --color=always"
 alias la="eza -a --group-directories-first --icons --color=always --oneline"
 
 ### Go to dotfiles directory
-alias dotfiles="code -n ~/.dotfiles"
+alias dotfiles="code -n $HOME/.dotfiles"
 
 ### Zoxide (better cd)
 alias cd="z"
 
+### Bat (better cat)
 alias cat="bat"
 
+### Golang configuration
 # export GOROOT=/usr/local/go
 export GOPATH=~/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+#### Login script
+# Load the login script to handle AWS, Docker, and Pulumi logins
+source $HOME/.dotfiles/scripts/login.sh
