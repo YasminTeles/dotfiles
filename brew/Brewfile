@@ -63,6 +63,7 @@ cask "google-chrome"
 cask "beekeeper-studio"
 cask "figma"
 cask "postman"
+brew "gemini-cli"
 
 # Productivity apps
 cask "cron"
