@@ -1,0 +1,13 @@
+{
+  "selectedAuthType": "oauth-personal",
+  "theme": "Default",
+  "mcpServers": {
+    "github": {
+      "httpUrl": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer ${GITHUB_TOKEN}"
+      },
+      "timeout": 5000
+    }
+  }
+}

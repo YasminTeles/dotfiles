@@ -14,7 +14,7 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Print a step description
-TOTAL_STEPS=13
+TOTAL_STEPS=14
 STEP=1
 function step_msg {
 	printf "\033[36;1m[%s/%s] %s...\033[0m\n" "$STEP" "$TOTAL_STEPS" "$1";
@@ -152,6 +152,11 @@ rm -rf ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.pub
 ssh-keygen -t ed25519 -C "$GIT_EMAIL" -f ~/.ssh/id_ed25519 -q -N ""
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
+
+# -- 14. Gemini ----------------------------------------------------------------
+step_msg "Setting up Gemini"
+
+cd ~/.dotfiles && stow gemini
 
 # -- Next Steps ----------------------------------------------------------------
 printf "\n"

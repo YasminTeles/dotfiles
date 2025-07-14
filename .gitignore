@@ -6,3 +6,6 @@ known_hosts.old
 .env
 
 .DS_Store
+
+gemini/.gemini/*
+!gemini/.gemini/settings.json
