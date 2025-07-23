@@ -26,9 +26,6 @@ function login {
     source $HOME/.dotfiles/.env
     set +a
 
-    step_msg "Logging in to GitHub..."
-    gh auth refresh
-
     step_msg "Logging in to AWS..."
     if [ -z "$AWS_PROFILE" ]; then
         echo "AWS_PROFILE is not set. Please set it before running this script."

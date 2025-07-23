@@ -210,6 +210,11 @@ alias cat="bat"
 export GOPATH=~/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
+### Gemini configuration
+if command -v gh &> /dev/null; then
+  export GITHUB_TOKEN=$(gh auth token)
+fi
+
 #### Login script
 # Load the login script to handle AWS, Docker, and Pulumi logins
 source $HOME/.dotfiles/scripts/login.sh
