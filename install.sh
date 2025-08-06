@@ -14,7 +14,7 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Print a step description
-TOTAL_STEPS=14
+TOTAL_STEPS=15
 STEP=1
 function step_msg {
 	printf "\033[36;1m[%s/%s] %s...\033[0m\n" "$STEP" "$TOTAL_STEPS" "$1";
@@ -157,6 +157,11 @@ ssh-add ~/.ssh/id_ed25519
 step_msg "Setting up Gemini"
 
 cd ~/.dotfiles && stow gemini
+
+# -- 15. Vim ----------------------------------------------------------------
+step_msg "Setting up Vim"
+
+cd ~/.dotfiles && stow vim
 
 # -- Next Steps ----------------------------------------------------------------
 printf "\n"
