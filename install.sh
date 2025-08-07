@@ -14,7 +14,7 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Print a step description
-TOTAL_STEPS=15
+TOTAL_STEPS=14
 STEP=1
 function step_msg {
 	printf "\033[36;1m[%s/%s] %s...\033[0m\n" "$STEP" "$TOTAL_STEPS" "$1";
@@ -143,7 +143,7 @@ cd ~/.dotfiles && stow --dotfiles git
 
 git config --global user.email "$GIT_EMAIL"
 
-# -- 13. SSH Key ------------------------------------------------------------------
+# -- 13. SSH Key ---------------------------------------------------------------
 step_msg "Generating a new SSH key"
 
 cd ~/.dotfiles && stow ssh
@@ -153,15 +153,10 @@ ssh-keygen -t ed25519 -C "$GIT_EMAIL" -f ~/.ssh/id_ed25519 -q -N ""
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 
-# -- 14. Gemini ----------------------------------------------------------------
-step_msg "Setting up Gemini"
+# -- 14. Others Apps configs ---------------------------------------------------
+step_msg "Setting up others apps configs"
 
-cd ~/.dotfiles && stow gemini
-
-# -- 15. Vim ----------------------------------------------------------------
-step_msg "Setting up Vim"
-
-cd ~/.dotfiles && stow vim
+cd ~/.dotfiles && stow gemini vim k9s
 
 # -- Next Steps ----------------------------------------------------------------
 printf "\n"
