@@ -2,12 +2,15 @@
   "selectedAuthType": "oauth-personal",
   "theme": "Default",
   "mcpServers": {
-    "github": {
+    "Github": {
       "httpUrl": "https://api.githubcopilot.com/mcp/",
       "headers": {
         "Authorization": "Bearer ${GITHUB_TOKEN}"
       },
       "timeout": 5000
+    },
+    "Notion": {
+      "url": "https://mcp.notion.com/mcp"
     }
   }
 }
