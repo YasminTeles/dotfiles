@@ -12,7 +12,7 @@ check_clean:
 
 del: check_clean ## Delete your development environment.
 	@echo "Deleting all dotfiles, applications, and folders..."
-	@stow --dotfiles -D git ssh brew zsh gh-dash fonts gemini k9s vim
+	@stow --dotfiles -D git ssh brew zsh gh-dash gemini k9s vim
 	@rm -rf ~/Projects
 	@rm -rf ~/Documents/*
 	@rm -rf ~/Downloads/*
