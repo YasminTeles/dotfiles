@@ -9,6 +9,9 @@
       },
       "timeout": 5000,
       "trust": true
+    },
+    "Notion": {
+      "url": "https://mcp.notion.com/mcp"
     }
   }
 }
