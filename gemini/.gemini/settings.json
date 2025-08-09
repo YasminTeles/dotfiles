@@ -11,6 +11,10 @@
     },
     "Notion": {
       "url": "https://mcp.notion.com/mcp"
+    },
+    "Jira": {
+      "url": "https://mcp.atlassian.com/v1/sse",
+      "type": "http"
     }
   }
 }
