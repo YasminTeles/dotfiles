@@ -133,7 +133,7 @@ sh ~/.dotfiles/macos/defaults.sh
 # -- 11. Set up fonts -------------------------------------------------------------
 step_msg "Setting up the custom fonts"
 
-cd ~/.dotfiles && stow -t ~/Library/Fonts fonts
+cp ~/.dotfiles/fonts/*.ttf ~/Library/Fonts/
 
 # -- 12. Git ----------------------------------------------------------------------
 step_msg "Configuring Git"
