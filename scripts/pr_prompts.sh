@@ -39,7 +39,7 @@ The description should follow these rules:
 
 ${git_data}
 "
-  gemini --prompt "$prompt"
+  gum spin --spinner dot --title "Generating the PR description..." --show-output -- gemini --prompt "$prompt"
 }
 
 get_pr_title() {
@@ -56,5 +56,5 @@ The title should adhere to the following conventions:
 
 ${git_data}
 "
-  gemini --prompt "$prompt"
+  gum spin --spinner dot --title "Generating the PR title..." --show-output -- gemini --prompt "$prompt"
 }
