@@ -9,6 +9,10 @@
       },
       "timeout": 5000,
       "trust": true
+    },
+    "Grafana": {
+      "httpUrl": "https://grafana-mcp-beta.vtex.systems/mcp",
+      "trust": true
     }
   }
 }
