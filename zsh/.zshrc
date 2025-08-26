@@ -215,6 +215,9 @@ if command -v gh &> /dev/null; then
   export GITHUB_TOKEN=$(gh auth token)
 fi
 
+### Cursor configuration
+export PATH="$HOME/.local/bin:$PATH"
+
 ### Login script
 # Load the login script to handle AWS, Docker, and Pulumi logins
 source $HOME/.dotfiles/scripts/login.sh
