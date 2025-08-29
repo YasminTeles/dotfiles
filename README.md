@@ -34,6 +34,8 @@ All my command-line tools, applications, and their configurations. Have fun 😎
 - Git and SSH key generation. See [gitconfig](/git/.gitconfig) for more information about my Git aliases.
 - Create a Projects folder. For clone all projects in GitHub, try `make github`.
 - Homebrew and a bunch of productivity apps. See [Brewfile](/brew/Brewfile) for more information.
+- Gemini-cli and all my AI workflow. It includes my [custom slash commands](/gemini/.gemini/commands/) and [Pull Request script](/script/pr_prompt.sh).
+- K9s with rose-pine catppuccin mocha theme.
 
 ## Helper
 
