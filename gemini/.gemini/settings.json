@@ -1,6 +1,9 @@
 {
   "selectedAuthType": "oauth-personal",
   "theme": "Default",
+  "checkpointing": {
+    "enabled": true
+  },
   "mcpServers": {
     "Github": {
       "httpUrl": "https://api.githubcopilot.com/mcp/",
