@@ -10,3 +10,4 @@ known_hosts.old
 gemini/.gemini/*
 !gemini/.gemini/settings.json
 !gemini/.gemini/commands
+!gemini/.gemini/GEMINI.md
