@@ -35,7 +35,7 @@ k9s:
     tail: 100
     buffer: 5000
     sinceSeconds: -1
-    textWrap: false
+    textWrap: true
     disableAutoscroll: false
     showTime: true
   thresholds:
