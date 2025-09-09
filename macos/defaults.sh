@@ -80,6 +80,9 @@ defaults write com.apple.dock autohide -bool false
 # Show recent applications in Dock
 defaults write com.apple.dock "show-recents" -bool false
 
+# Disable Displays have separate Spaces
+defaults write com.apple.spaces "spans-displays" -bool "true"
+
 # Restart Dock
 killall Dock
 
