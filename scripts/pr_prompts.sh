@@ -32,10 +32,7 @@ The description should follow these rules:
 1.  Start with the Jira ticket number, if found. The ticket number is typically in a format like 'PROJ-1234' and is usually in the commit message. Add the ticket number at the ending of the description. It must be in the format 'Related to PROJ-1234'.
 2.  Provide a clear and concise summary of the changes.
 3.  List the key changes, bug fixes, or new features introduced. Use bullet points for readability.
-4.  Explain the problem that this PR solves.
-5.  If applicable, describe the solution implemented and any alternative approaches that were considered.
-6.  Mention any potential side effects or areas for the reviewer to pay special attention to.
-7.  The tone should be professional and informative.
+4.  The tone should be professional and informative.
 
 ${git_data}
 "
