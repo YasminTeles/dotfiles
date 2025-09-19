@@ -45,9 +45,9 @@ gh-login: ## Login to GitHub.
 	@gh auth login --git-protocol ssh --web
 
 colima: ## Setting up Colima and create a docker compose plugin.
-	@echo '{"credsStore":"osxkeychain"}' > ~/.docker/config.json
-	@mkdir -p ~/.docker/cli-plugins
-	@ln -sfn $(brew --prefix)/opt/docker-compose/bin/docker-compose ~/.docker/cli-plugins/docker-compose
+	brew uninstall docker-desktop
+	stow docker
+	brew services start colima
 
 check-scripts: ## Check the shell script.
 	@echo "Checking the shell script..."

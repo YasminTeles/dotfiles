@@ -34,7 +34,6 @@ brew "colima"
 brew "docker"
 brew "docker-compose"
 brew "docker-credential-helper"
-brew "docker-machine"
 
 # Cloud tools
 brew "hashicorp/tap/terraform"
