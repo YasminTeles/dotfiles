@@ -12,6 +12,10 @@
       },
       "timeout": 5000,
       "trust": true
+    },
+    "Notion": {
+      "httpUrl": "https://mcp.notion.com/mcp",
+      "trust": true
     }
   }
 }
