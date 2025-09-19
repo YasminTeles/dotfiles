@@ -16,6 +16,10 @@
     "Notion": {
       "httpUrl": "https://mcp.notion.com/mcp",
       "trust": true
+    },
+    "Jira": {
+      "url": "https://mcp.atlassian.com/v1/sse",
+      "trust": true
     }
   }
 }
