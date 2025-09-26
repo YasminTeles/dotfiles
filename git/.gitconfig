@@ -29,10 +29,10 @@
 	rup = !sh -c 'git remote update -p && git upm && git la' -
 	fat = "fetch --all --tags"
 
-	# Branchs
+	# Branches
 	cc = checkout
 	mff = merge --ff-only
-	del = !sh -c 'git branch -D $1 && git push origin :$1' -
+	del = "!f() { git branch -D \"$1\"; git push origin :\"$1\"; }; f"
 	new = !sh -c 'git checkout -b $1 && git push origin $1' -
 	psh = !sh -c 'git push origin $(git branch --show-current) $1 && git la' -
 	bls = branch -vva
@@ -58,7 +58,7 @@
 	prune = true
 
 [core]
-	pager = "delta --width 150 | less -RFX"
+	pager = "delta"
 	excludesFile = ~/.gitignore
 	autocrlf = false
 
@@ -73,8 +73,9 @@
 
 [delta]
 	navigate = true
-	side-by-side = true
+	side-by-side = 80
 	tabs = 2
+  pager = "less -RFX" # Uncomment this line if you want to use less as pager instead of delta's paging config
 
 [merge]
 	conflictstyle = diff3
