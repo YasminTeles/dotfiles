@@ -21,6 +21,8 @@ prSections:
   - title: My Projects
     filters: is:open review-requested:@me author:app/dependabot owner:YasminTeles
 
+smartFilteringAtLaunch: false
+
 defaults:
   layout:
     prs:
