@@ -29,10 +29,10 @@ You are an expert software developer and technical writer.
 Your task is to write a detailed, well-structured, and professional Pull Request description based on the provided git diff and commit messages.
 
 The description should follow these rules:
-1.  Start with the Jira ticket number, if found. The ticket number is typically in a format like 'PROJ-1234' and is usually in the commit message. Add the ticket number at the ending of the description. It must be in the format 'Related to PROJ-1234'.
-2.  Provide a clear and concise summary of the changes.
-3.  List the key changes, bug fixes, or new features introduced. Use bullet points for readability.
-4.  The tone should be professional and informative.
+1. Provide a clear and concise summary of the changes.
+2. List the key changes, bug fixes, or new features introduced. Use bullet points for readability.
+3. The tone should be professional and informative.
+4. Scan commit messages for Jira tickets (e.g., 'PROJ-1234') and incident tickets (e.g., 'INC-1234'). If found, append 'Related to TICKET_NUMBER' to the end of the description. You can append many tickers in one line, such like, 'Related to TICKET_NUMBER1 and TICKET_NUMBER2'.
 
 ${git_data}
 "
