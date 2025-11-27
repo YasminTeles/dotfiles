@@ -6,17 +6,34 @@ function step_msg {
 
 # AWS and Docker Images Registry login
 function docker-login {
-    ## Private
-    gum spin --spinner dot -- aws ecr get-login-password --region $AWS_REGION --profile $AWS_PROFILE \
-      | docker login \
-          --username AWS \
-          --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
+  ## Private
+  gum spin --spinner dot -- aws ecr get-login-password --region $AWS_REGION --profile $AWS_PROFILE |\
+  docker login \
+    --username AWS \
+    --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
 
-    ## Public
-    gum spin --spinner dot -- aws ecr-public get-login-password --region $AWS_REGION --profile $AWS_PROFILE \
-      | docker login \
-          --username AWS \
-          --password-stdin public.ecr.aws
+  ## Public
+  gum spin --spinner dot -- aws ecr-public get-login-password --region $AWS_REGION --profile $AWS_PROFILE |\
+  docker login \
+    --username AWS \
+    --password-stdin public.ecr.aws
+}
+
+# AWS and Helm Charts Registry login
+function helm-login {
+  ## Private
+  gum spin --spinner dot -- aws ecr get-login-password \
+    --region $AWS_REGION --profile $AWS_PROFILE \
+    | helm registry login \
+      --username AWS \
+      --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
+
+  ## Public
+  gum spin --spinner dot -- aws ecr-public get-login-password \
+    --region $AWS_REGION --profile $AWS_PROFILE \
+    | helm registry login \
+      --username AWS \
+      --password-stdin public.ecr.aws
 }
 
 # Pulumi login needs GITHUB_TOKEN, PULUMI_ACCESS_TOKEN
@@ -35,6 +52,9 @@ function login {
 
     step_msg "Logging into the Docker Images Registry"
     docker-login
+
+    step_msg "Logging into the Helm Charts Registry"
+    helm-login
 
     step_msg "Logging into the Pulumi"
     gum spin --spinner dot --show-output -- pulumi login
