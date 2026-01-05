@@ -2,7 +2,8 @@
   "general": {
     "checkpointing": {
       "enabled": true
-    }
+    },
+    "previewFeatures": true
   },
   "mcpServers": {
     "Github": {
