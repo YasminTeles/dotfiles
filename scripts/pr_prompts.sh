@@ -36,7 +36,7 @@ The description should follow these rules:
 
 ${git_data}
 "
-  gum spin --spinner dot --title "Generating the PR description..." --show-output -- gemini "$prompt"
+  gum spin --spinner dot --title "Generating the PR description..." --show-output -- gemini "$prompt" -e none
 }
 
 get_pr_title() {
@@ -53,5 +53,5 @@ The title should adhere to the following conventions:
 
 ${git_data}
 "
-  gum spin --spinner dot --title "Generating the PR title..." --show-output -- gemini "$prompt"
+  gum spin --spinner dot --title "Generating the PR title..." --show-output -- gemini "$prompt" -e none
 }
