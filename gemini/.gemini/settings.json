@@ -3,7 +3,12 @@
     "checkpointing": {
       "enabled": true
     },
-    "previewFeatures": true
+    "previewFeatures": true,
+    "sessionRetention": {
+      "warningAcknowledged": true,
+      "enabled": true,
+      "maxAge": "120d"
+    }
   },
   "mcpServers": {
     "Github": {
@@ -30,5 +35,11 @@
   },
   "ui": {
     "theme": "Default"
+  },
+  "tools": {
+    "shell": {
+      "enableInteractiveShell": true,
+      "showColor": true
+    }
   }
 }
