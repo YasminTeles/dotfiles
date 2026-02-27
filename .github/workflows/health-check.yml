@@ -33,7 +33,7 @@ jobs:
 
   Test:
     name: Test install and uninstall on macOS
-    runs-on: macos-14
+    runs-on: macos-26
     timeout-minutes: 30
     steps:
       - name: Set up Homebrew PATH environment
@@ -59,17 +59,17 @@ jobs:
             cd ~
             ls -la
 
-  Message:
-    name: Error message
-    needs: [Scan, Shellcheck, Test]
-    runs-on: ubuntu-latest
-    if: ${{ failure() }}
-    steps:
-      - name: Post to Slack
-        id: slack
-        uses: slackapi/slack-github-action@v2.1.1
-        with:
-          channel-id: ${{ secrets.SLACK_CHANNEL }}
-          slack-message: ":eyes: *${{ github.repository }}* GitHub Actions: ${{ github.workflow }} #${{ github.run_number }} failed.\n<${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}|${{ github.event.head_commit.message }}>"
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+  # Message: Replace it for email message
+  #   name: Error message
+  #   needs: [Scan, Shellcheck, Test]
+  #   runs-on: ubuntu-latest
+  #   if: ${{ failure() }}
+  #   steps:
+  #     - name: Post to Slack
+  #       id: slack
+  #       uses: slackapi/slack-github-action@v2.1.1
+  #       with:
+  #         channel-id: ${{ secrets.SLACK_CHANNEL }}
+  #         slack-message: ":eyes: *${{ github.repository }}* GitHub Actions: ${{ github.workflow }} #${{ github.run_number }} failed.\n<${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}|${{ github.event.head_commit.message }}>"
+  #       env:
+  #         SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
