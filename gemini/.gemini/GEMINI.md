@@ -30,11 +30,7 @@ This configuration should apply to all Gemini CLI invocations, unless any partic
 
 ## Other Tools
 
-### Grafana
-
-- If Yasmin asks about metrics in Grafana, please always show her request's promQL, title, description, and visualization type. You don't have to generate the Grafana configs JSON unless she asks.
-
 ### Markdown
 
-- Always use [markdownlint](https://github.com/DavidAnson/markdownlint) to format and lint the text.
+- Always use [markdownlint](https://github.com/DavidAnson/markdownlint) to format and lint the Markdown text.
 - Use [Mermaid](https://mermaid.js.org/intro/) to create diagrams.
