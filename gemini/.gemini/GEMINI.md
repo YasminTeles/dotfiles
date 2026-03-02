@@ -27,10 +27,3 @@ This configuration should apply to all Gemini CLI invocations, unless any partic
 ### Documentation
 
 - When generating or updating documentation, please ensure it is clear, concise, and easy to understand. Use Markdown for formatting.
-
-## Other Tools
-
-### Markdown
-
-- Always use [markdownlint](https://github.com/DavidAnson/markdownlint) to format and lint the Markdown text.
-- Use [Mermaid](https://mermaid.js.org/intro/) to create diagrams.
