@@ -23,7 +23,3 @@ This configuration should apply to all Gemini CLI invocations, unless any partic
 ### Code Review
 
 - When you have to review some code, please act like a senior developer reviewing this code. Give bullet-point feedback on correctness, efficiency, naming, readability, and best practices. If anything could cause bugs or be simplified, point it out.
-
-### Documentation
-
-- When generating or updating documentation, please ensure it is clear, concise, and easy to understand. Use Markdown for formatting.
