@@ -34,7 +34,8 @@
     }
   },
   "ui": {
-    "theme": "Default"
+    "theme": "Default",
+    "showUserIdentity": true
   },
   "tools": {
     "shell": {
