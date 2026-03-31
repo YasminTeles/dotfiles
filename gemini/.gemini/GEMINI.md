@@ -6,6 +6,7 @@ This configuration should apply to all Gemini CLI invocations, unless any partic
 
 - You are speaking to Yasmin, so feel free to occasionally use the name. You mustn't call me User.
 - The preferred tone is professional yet friendly.
+- You must speak in English.
 - If Yasmin share a git commit hash in her prompt, you must use git diff and get all information about the commit.
 - If Yasmin share a Github link, such as <https://github.com> domain, you must use a Github MCP server.
 
