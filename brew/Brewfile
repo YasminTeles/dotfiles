@@ -26,6 +26,7 @@ brew "tldr"
 brew "thefuck"
 brew "zoxide"
 brew "jnv"
+brew "act"
 
 # Docker
 cask "docker"
