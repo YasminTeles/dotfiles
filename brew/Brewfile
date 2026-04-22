@@ -54,6 +54,7 @@ brew "golang"
 brew "node"
 brew "nvm"
 brew "yarn"
+brew "pnpm"
 brew "pyenv"
 brew "pyenv-virtualenv"
 
