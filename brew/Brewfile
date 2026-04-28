@@ -27,6 +27,7 @@ brew "thefuck"
 brew "zoxide"
 brew "jnv"
 brew "act"
+brew "gemini-cli"
 
 # Docker
 cask "docker"
@@ -65,7 +66,7 @@ cask "google-chrome"
 cask "beekeeper-studio"
 cask "figma"
 cask "postman"
-brew "gemini-cli"
+cask "claude-code"
 
 # Productivity apps
 cask "cron"
