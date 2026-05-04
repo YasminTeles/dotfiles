@@ -26,6 +26,14 @@
     "Jira": {
       "url": "https://mcp.atlassian.com/v1/sse",
       "trust": true
+    },
+    "mui-mcp-server": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@mui/mcp@latest"
+      ],
+      "env": {}
     }
   },
   "security": {
