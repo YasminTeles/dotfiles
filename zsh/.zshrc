@@ -228,3 +228,4 @@ source $HOME/.dotfiles/scripts/login.sh
 
 ### AI Prompts
 source $HOME/.dotfiles/scripts/pr_prompts.sh
+source $HOME/.dotfiles/scripts/git_commit.sh
