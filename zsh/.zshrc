@@ -165,6 +165,8 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+export PATH="$PATH:~/Library/Application Support/pypoetry/venv/bin/poetry"
+
 ### Bat theme (better cat)
 export BAT_THEME=rose-pine-moon
 
@@ -221,6 +223,9 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 if command -v gh &> /dev/null; then
   export GITHUB_TOKEN=$(gh auth token)
 fi
+
+### Added by Antigravity CLI installer
+export PATH="/Users/yasmin.teles/.local/bin:$PATH"
 
 ### Login script
 # Load the login script to handle AWS, Docker, and Pulumi logins
